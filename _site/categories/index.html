@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>JJIONI NOTES</title>
+<!-- begin _includes/seo.html --><title>Posts by Category - JJIONI NOTES</title>
 <meta name="description" content="NOTES, … ">
 
 
@@ -19,8 +19,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="JJIONI NOTES">
-<meta property="og:title" content="JJIONI NOTES">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:title" content="Posts by Category">
+<meta property="og:url" content="http://localhost:4000/categories/">
 
 
   <meta property="og:description" content="NOTES, … ">
@@ -40,7 +40,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/">
+<link rel="canonical" href="http://localhost:4000/categories/">
 
 
 
@@ -101,7 +101,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--categories">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -266,14 +266,36 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title"></h1>
+      <h1 id="page-title" class="page__title">Posts by Category</h1>
     
     
 
-<h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+<ul class="taxonomy__index">
+  
+    
+      
+        <li>
+          <a href="#blog">
+            <strong>Blog</strong> <span class="taxonomy__count">1</span>
+          </a>
+        </li>
+      
+    
+  
+</ul>
 
 
   
+    
+      <section id="blog" class="taxonomy__section">
+        <h2 class="archive__subtitle">Blog</h2>
+        <div class="entries-list">
+          
+            
 
 
 
@@ -301,9 +323,12 @@
   </article>
 </div>
 
-
-
-
+          
+        </div>
+        <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+      </section>
+    
+  
 
 
   </div>
