@@ -6,5 +6,6 @@ layout: single
 
 ##  블로그
 
-chloejiwon.github.io
-블로그는 기술과 관련 잡다한 것들을 기록하는 블로그다.
+JJIONI NOTES 블로그는 기술과 관련 잡다한 것들을 기록하는 블로그다.
+
+_**`🐢 🐢 slow and steady wins the game`**_
