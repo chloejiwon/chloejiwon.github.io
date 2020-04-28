@@ -11,12 +11,13 @@ last_modified_at: 2020-04-27T17:42:00-05:00
  
 > 일단 docker의 기본 개념을 (대충) 알아보자. 나도 잘 모르니깐...😛 (대충) 해보니까 드는 생각은 너무 편하다 👏🏻 매번 환경설정 맞춰 줘야 되고.. 버전 맞춰줘야 될 일 없어서..! 하물며 강의 들으면서 공부하는데 조차 !!!! 패키지, 버전때문에 골치아플 일 없어서 너무 좋다. 휴~ 그리고 난 내 로컬에 뭐 잘못될때마다 자꾸 까는게 싫어... 도커로 개발하면서 알게된 내용은 계속 추가 예정이다.
 
-## :memo: Table of Contents
-- [docker가 무어냐?](#docker란?)
-- [docker의 기본 개념](#docker의-기본-개념)
-    - [docker의 동작방식](#docker의-동작-방식)
+## 🗒 Table of Contents
+- [docker가 무어냐?](#docker란)
+- [docker의 기본 개념](#docker의-기본개념)
+    - [docker의 동작방식](#docker의-동작방식)
     - [docker의 이미지](#docker의-이미지)
     - [docker의 컨테이너](#docker의-컨테이너)
+- [실제 수행기](#실제-수행기)
 - [reference](#reference)
 
 ## docker란?
@@ -98,9 +99,11 @@ root@640d6ef0849d:/#
 그럼 이제 내가 만든 이미지를 내 허브에 올려서 내가 로컬을 옮길때마다 다운받을 수 있도록 하면 좋겠다! 
 
 `docker stop <<내가 실행한 컨테이너 이름>>`
+
 (이름은 `docker ps -a`해서 알아낼 수 있음)
 
 그리고 지금까지의 컨테이너를 이미지화 한다.
+
 `docker commit -a "<<author name>>" <<container_id>> image_name/tag`
 
 이제 `docker images`하면 아마 내가 만든 이름을 찾을 수 있을 것이다!
@@ -127,7 +130,7 @@ hello-world
 하면, 이제 막 내 docker hub에 push 된다. 쭉쭉..
 
 
-##reference
+## reference
 * https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html
 
 * http://moducon.kr/2018/wp-content/uploads/sites/2/2018/12/leesangsoo_slide.pdf
