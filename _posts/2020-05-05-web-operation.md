@@ -35,39 +35,40 @@ IP주소가 숫자로만 구성되어 있으니 외우기 힘들기 때문에, �
 
 
 ## WEB 동작방식
+<hr/>
 
 ![web동작방식](/assets/images/web-operation.png)
 
-1. 사용자가 웹 브라우저에 도메인 네임을 입력한다. (주소창에 www.naver.com을 친다)
+<hr/>
 
-2. 웹 브라우저가 URL을 해석한다.
+### 1. 사용자가 웹 브라우저에 도메인 네임을 입력한다. (주소창에 www.naver.com을 친다)
+
+### 2. 웹 브라우저가 URL을 해석한다.
 
   - 어떤 프로토콜을 사용하는지 .. 
   (http, telnet, ftp ...)
 
-  - ip 정보가 필요한지 
+  - ip 정보가 필요한지 (:다음에 //있으면 필요하다고 판단)
 
-(:다음에 //있으면 필요하다고 판단)
-
-3. URL문법에 맞으면, punycode encoding을 url의 host부분에 적용하고 HSTS(HTTP strict Transport Security)목록 로드해서 확인한다.
+### 3. URL문법에 맞으면, punycode encoding을 url의 host부분에 적용하고 HSTS(HTTP strict Transport Security)목록 로드해서 확인한다.
 
   * url 문법 안맞으면 그냥 기본 검색엔진으로 넘어감
 
   * hsts 목록에 있으면 https로 보내고 아니면 http로 보냄
 
-4. DNS (Domain Name Server)에 조회한다.
+### 4. DNS (Domain Name Server)에 조회한다.
 
-  4-1) Browser에 해당 domain이 cache되어 있나 확인! 되어있으면 굳이 서버 조회 안해도 됨
+  * Browser에 해당 domain이 cache되어 있나 확인! 되어있으면 굳이 서버 조회 안해도 됨
 
-  4-2) 없으면, 로컬에 저장돼 있는 hosts파일에서 참조할 수 있는 Domain이 있는지 확인한다.
+  * 없으면, 로컬에 저장돼 있는 hosts파일에서 참조할 수 있는 Domain이 있는지 확인한다.
 
-  4-3) 모두 없으면 Network Stack에 구성되어 있는 DNS로 요청을 보낸다. 
+  * 모두 없으면 Network Stack에 구성되어 있는 DNS로 요청을 보낸다. 
 
-  4-4) DNS는 도메인 주소에 해당하는 ip 주소를 알려준다.
+  * DNS는 도메인 주소에 해당하는 ip 주소를 알려준다.
 
-5. ARP(Address Resolution Protocol)로 대상의 IP와 MAC address를 알아낸다.
+### 5. ARP(Address Resolution Protocol)로 대상의 IP와 MAC address를 알아낸다.
 
-6. 대상과 TCP 통신을 통해 socket을 연다.
+### 6. 대상과 TCP 통신을 통해 socket을 연다.
 
   1) 브라우저가 대상 서버의 IP 주소를 받으면 URL에서 해당 포트 번호(HTTP의 기본값은 80, HTTPS의 기본값은 443)를 가져와서, TCP Socket stream 요청
 
@@ -89,13 +90,13 @@ IP주소가 숫자로만 구성되어 있으니 외우기 힘들기 때문에, �
 
       TTL필드가 0이 되거나 현재 router 대기열에 공간이 없으면 네트워크 정체로 packet 삭제
 
-    ![TCP socket 통신 과정](/assets/images/tcp-operation.jpeg)
+![TCP socket 통신 과정](/assets/images/tcp-operation.jpeg)
 
-7. HTTPS인 경우 SSL(TLS) handshake가 추가된다. 
+### 7. HTTPS인 경우 SSL(TLS) handshake가 추가된다. 
 
   - TCP socket 통신과정 전에 TLS 통신이 추가된다.
 
-8. HTTP 프로토콜로 요청한다.
+### 8. HTTP 프로토콜로 요청한다.
 
 `
 GET / HTTP/1.1
@@ -106,11 +107,11 @@ Connection: close
 
 서버로 부터 html 응답을 받는다.
 
-9. HTTP서버가 응답한다.
+### 9. HTTP서버가 응답한다.
 
 HTTPD(HTTP daemon) 서버는 요청 / 응답을 처리하는 서버이다. 가장 일반적인 HTTPD 서버는 Linux의 경우 Apache 또는 Nginx이고 Windows의 경우 IIS이다.
 
-10. 웹 브라우저가 그린다. 
+### 10. 웹 브라우저가 그린다. 
 
 - 서버가 리소스를 브라우저에게 제공하면 브라우저는 렌더링 등을 수행하여 화면을 그린다.
 
