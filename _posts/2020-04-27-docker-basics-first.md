@@ -130,7 +130,7 @@ hello-world
 하면, 이제 막 내 docker hub에 push 된다. 쭉쭉..
 
 
-> <5/26일 추가> 오메 신기한겨... IBM Cloud에서 제공해주는 `웹사이트에서 코로나19(COVID-19) 위기 대응 커뮤니케이션 챗봇 통합하기` 튜토리얼을 한번 해보려고 했고, 또 로컬에 깔기 싫어서 ubuntu docker 이미지 사용했다. ubuntu 컨테이너에다가 curl 깔고 IBM Cloud CLID 깔아야 된다 그러길래(튜토리얼 무한 신뢰) 깔았는데 docker container안에 또 docker를 깔게 되었다. 🤪 잘 되려나? 안 되어도 잘 되어도 글로 남겨둬야지. 일단 까는 건 무사히 성공.
+> <5/26일 추가> 오메 신기한겨... IBM Cloud에서 제공해주는 `웹사이트에서 코로나19(COVID-19) 위기 대응 커뮤니케이션 챗봇 통합하기` 튜토리얼을 한번 해보려고 했고, 또 로컬에 깔기 싫어서 ubuntu docker 이미지 사용했다. ubuntu 컨테이너에다가 curl 깔고 IBM Cloud CLI 깔아야 된다 그러길래(튜토리얼 무한 신뢰) 깔았는데 docker container안에 또 docker를 깔게 되었다. 🤪 잘 되려나? 안 되어도 잘 되어도 글로 남겨둬야지. 일단 까는 건 무사히 성공.
 
 ```bash
 root@3141372216ff:/# curl -sL https://ibm.biz/idt-installer | bash
@@ -243,7 +243,7 @@ main: line 346: ibmcloud: command not found
 [main] --==[ Total time: 846 seconds ]==--
 ```
 
-뭔가 ibmcloud만 제대로 안깔린 것 같은데.. 🧐와 이거 안되어서 또 개고생했는데 ibm에서 CLI docker 이미지로 만들었네. 😀하하! 그럼 그렇지! 엄청 편하네 ^-^
+뭔가 ibmcloud만 제대로 안깔린 것 같은데.. 🧐와 이거 안되어서 또 <del>개</del>고생했는데 <del>( docker network 뒤져보고 외부 통신 안될때 이런거 찾아 보는데 ...)</del>ibm에서 CLI docker 이미지로 만들었네. 😀하하! 그럼 그렇지! 엄청 편하네. 다음 번엔 host 에 있는 폴더와 mount 하는 법 / docker container 로 개발 환경 만들기 (?아주 허접하지만!) 을 포스팅 해야겠다.
 
 ## reference
 * https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html
