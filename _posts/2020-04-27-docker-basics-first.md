@@ -130,9 +130,126 @@ hello-world
 하면, 이제 막 내 docker hub에 push 된다. 쭉쭉..
 
 
+> <5/26일 추가> 오메 신기한겨... IBM Cloud에서 제공해주는 `웹사이트에서 코로나19(COVID-19) 위기 대응 커뮤니케이션 챗봇 통합하기` 튜토리얼을 한번 해보려고 했고, 또 로컬에 깔기 싫어서 ubuntu docker 이미지 사용했다. ubuntu 컨테이너에다가 curl 깔고 IBM Cloud CLID 깔아야 된다 그러길래(튜토리얼 무한 신뢰) 깔았는데 docker container안에 또 docker를 깔게 되었다. 🤪 잘 되려나? 안 되어도 잘 되어도 글로 남겨둬야지. 일단 까는 건 무사히 성공.
+
+```bash
+root@3141372216ff:/# curl -sL https://ibm.biz/idt-installer | bash
+[main] --==[ IBM Cloud Developer Tools for Linux/MacOS - Installer, v1.2.3 ]==--
+[install] Starting Update...
+[install_deps_with_apt_get] Checking for and updating 'apt-get' support on Linux
+[install_deps_with_apt_get] Installing package: software-properties-common
+Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]                      
+Get:2 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic InRelease [20.7 kB]                    
+Hit:3 http://archive.ubuntu.com/ubuntu bionic InRelease                                  
+Hit:4 http://archive.ubuntu.com/ubuntu bionic-updates InRelease                                                     
+Hit:5 http://archive.ubuntu.com/ubuntu bionic-backports InRelease                                                      
+Get:6 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic/main amd64 Packages [3174 B]                          
+Fetched 113 kB in 2s (51.9 kB/s)                    
+Reading package lists... Done
+Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic InRelease 
+Hit:2 http://archive.ubuntu.com/ubuntu bionic InRelease             
+Hit:3 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:5 http://archive.ubuntu.com/ubuntu bionic-backports InRelease
+Reading package lists... Done                      
+[install_deps_with_apt_get] Installing/updating external dependency: curl
+[install_deps_with_apt_get] Installing/updating external dependency: git
+```
+
+curl update하고 git 깔고 여기까진 좋다 이거야.
+
+```bash
+[install_deps_with_apt_get] Please review any setup requirements for 'git' from: https://git-scm.com/downloads
+[install_docker] Installing/updating external dependency: docker
+# Executing docker install script, commit: 26ff363bcf3b3f5a00498ac43694bf1c7d9ce16c
++ sh -c apt-get update -qq >/dev/null
++ sh -c DEBIAN_FRONTEND=noninteractive apt-get install -y -qq apt-transport-https ca-certificates curl >/dev/null
+debconf: delaying package configuration, since apt-utils is not installed
++ sh -c curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | apt-key add -qq - >/dev/null
+Warning: apt-key output should not be parsed (stdout is not a terminal)
++ sh -c echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" > /etc/apt/sources.list.d/docker.list
++ sh -c apt-get update -qq >/dev/null
++ [ -n  ]
++ sh -c apt-get install -y -qq --no-install-recommends docker-ce >/dev/null
+debconf: delaying package configuration, since apt-utils is not installed
+If you would like to use Docker as a non-root user, you should now consider
+adding your user to the "docker" group with something like:
+
+  sudo usermod -aG docker your-user
+
+Remember that you will have to log out and back in for this to take effect!
+
+WARNING: Adding a user to the "docker" group will grant the ability to run
+         containers which can be used to obtain root privileges on the
+         docker host.
+         Refer to https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface
+         for more information.
+[install_docker] If you want to run docker without sudo run: "sudo groupadd docker && sudo usermod -aG docker $USER"
+[install_docker] Please review any setup requirements for 'docker' from: https://docs.docker.com/engine/installation/
+Client: Docker Engine - Community
+ Version:           19.03.9
+ API version:       1.40
+ Go version:        go1.13.10
+ Git commit:        9d988398e7
+ Built:             Fri May 15 00:25:18 2020
+ OS/Arch:           linux/amd64
+ Experimental:      false
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+```
+
+docker 무사히 깔린듯.
+
+
+```bash
+[install_deps_with_apt_get] Installing/updating external dependency: kubectl
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   371  100   371    0     0   1170      0 --:--:-- --:--:-- --:--:--  1166
+######################################################################## 100.0%
+[install_deps_with_apt_get] Please review any setup requirements for 'kubectl' from: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[install_deps_with_apt_get] Installing/updating external dependency: helm
+Downloading https://get.helm.sh/helm-v2.16.7-linux-amd64.tar.gz
+Preparing to install helm and tiller into /usr/local/bin
+helm installed into /usr/local/bin/helm
+tiller installed into /usr/local/bin/tiller
+Run 'helm init' to configure helm.
+
+```
+
+kubectl 깔고.. (kubenetes 인듯?(잘모름))
+
+
+```bash
+[install_ibmcloud] Installing IBM Cloud 'ibmcloud' CLI for platform 'Linux'...
+[install_ibmcloud] Downloading and installing IBM Cloud 'ibmcloud' CLI from: https://clis.cloud.ibm.com/install/linux
+Current platform is linux64. Downloading corresponding IBM Cloud CLI...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   118  100   118    0     0    149      0 --:--:-- --:--:-- --:--:--   149
+  0 15.2M    0  112k    0     0    184      0 24:06:55  0:10:23 23:56:32     0
+curl: (18) transfer closed with 15859412 bytes remaining to read
+Download failed. Please check your network connection. Quit installation.
+[install_ibmcloud] IBM Cloud 'ibmcloud' CLI install finished.
+[install_ibmcloud] Running 'ibmcloud --version'...
+
+---중간 생략----
+
+[install_plugins] Running 'ibmcloud plugin list'...
+main: line 346: ibmcloud: command not found
+[install_plugins] Finished installing/updating plugins
+[env_setup] WARN: Please restart your shell to enable 'ic' alias for ibmcloud!
+[install] Install finished.
+[main] --==[ Total time: 846 seconds ]==--
+```
+
+뭔가 ibmcloud만 제대로 안깔린 것 같은데.. 🧐와 이거 안되어서 또 개고생했는데 ibm에서 CLI docker 이미지로 만들었네. 😀하하! 그럼 그렇지! 엄청 편하네 ^-^
+
 ## reference
 * https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html
 
 * http://moducon.kr/2018/wp-content/uploads/sites/2/2018/12/leesangsoo_slide.pdf
 
 * https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html
+
+* https://developer.ibm.com/kr/tutorials/create-a-covid-19-chatbot-embedded-on-a-website/
