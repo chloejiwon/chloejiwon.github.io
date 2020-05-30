@@ -41,7 +41,7 @@ PCA의 목적은 typical vector을 찾는것이다. 각 typical vector은 데이
 
 ## SVD (Singular Value Decomposition)
 
-SVD는 임의의 M x N 차원의 행렬에 대해서 행렬의 곱으로 행렬을 분해하는 방법 중 하나이다. SVD는 R을 입력 받아, 다음과 같은 M, Σ, U를 반환하는 알고리즘이다.
+SVD는 임의의 M x N 차원의 행렬에 대해서 행렬의 곱으로 행렬을 분해하는 방법 중 하나이다. SVD는 R을 입력 받아, 다음과 같은 M, Σ(대각행렬), U를 반환하는 알고리즘이다.
 
 ![SVD공식](https://t1.daumcdn.net/cfile/tistory/9909C6465B125C9E24)
 
@@ -51,9 +51,12 @@ SVD는 임의의 M x N 차원의 행렬에 대해서 행렬의 곱으로 행렬�
 
 ![rui공식](https://t1.daumcdn.net/cfile/tistory/99F01A445B12622833)
 
-rui는 user가 item에 가지는 선호도라고 하자. pu는 user에 대한 정보고, qi는 item에 대한 정보다.
+rui는 user가 item에 가지는 선호도라고 하자. pu는 user에 대한 정보, qi는 item에 대한 정보다.
 
 # Matrix Factorization 구현
+
+그럼 주어진 matrix R이 sparse하다면 빈 값을 어떻게 추정하여 구할 수 있을까? (= 추천시스템)
+여러가지 방법이 있겠지만, Gradient Discent방식을 사용하여 구현해보자. (딥러닝에서 많이 쓰이는 방식) 랜덤한 값으로 p와 q를 셋팅하고 training하면서 RSME를 최소값으로 만드는 값을 찾는다. 아는 rui에 대해서 제일 좋은 p와 q를 찾아서, 나머지 빈 값을 계산하도록 한다.
 
 # Reference
 
