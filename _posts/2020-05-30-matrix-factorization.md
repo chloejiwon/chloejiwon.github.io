@@ -25,7 +25,7 @@ last_modified_at: 2020-05-30T01:11:00-05:00
 
 ## PCA (Principal Component Analysis)
 
-PCA는 분포된 데이터들의 주성분(Principal Component)를 찾아주는 방법이다.
+PCA는 데이터의 구조를 **잘** 살려주면서 차원 감소를 할 수 있게 해주는 방법이다. 차원 감소를 위해선, 선형대수학적으로 **정사영**이라는 방법을 이용한다. 그럼 우리는 데이터 구조를 **잘** 살리기 위해 어떤 벡터에 정사영 시키면 잘 했다고 소문이 날까?
 
 ![2D에서의PCA](https://t1.daumcdn.net/cfile/tistory/25388D40527C43DB0B)
 
