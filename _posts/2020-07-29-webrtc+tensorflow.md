@@ -1,5 +1,5 @@
 ---
-title: "WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자"
+title: "WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 1탄"
 excerpt: "webrtc 와 tensorflow js 모델로 object detection해보기"
 
 categories:
@@ -8,13 +8,14 @@ tags:
   - tensorflow, javascript
 last_modified_at: 2020-07-26T01:11:00-05:00
 
+
 ---
 
 
 
 > 프로젝트 진행하면서 처음 접한 webrtc.. 실시간으로 영상 채팅하며tensorflow js 모델과 함께 객체 인식을 하는 기능을 구현해보는데... 👀 
 >
-> **왕왕 초보라 틀린 정보가 있을 수 있음을 미리 고지합니다. **
+> 왕왕 초보라 틀린 정보가 있을 수 있음을 미리 고지합니다
 
 # 📌 Table of Contents
 
@@ -25,6 +26,8 @@ last_modified_at: 2020-07-26T01:11:00-05:00
 - [Tensorflow js모델을 심자](#tensorflow-js모델을-심자)
 - [reference](#reference)
 
+
+  
 # 🚦 webRTC가 뭐냐?
 
 WebRTC는 web application간에 실시간 통신 기능을 제공하는 기술. 특히 마이크나 스피커, 영상같은 데이터를 실시간으로 peer connection으로 별도 서버 없이 가능하게 해준다.  (심지어 screen sharing도 가능하다고 함 ) 그럼 간단한 동작 방식을 살펴보자! 
@@ -48,11 +51,13 @@ WebRTC는 web application간에 실시간 통신 기능을 제공하는 기술. 
 
 
 
+  
+  
 #  🎓 webRTC 구현하기 
 
 프로젝트에서 사용한 기본적인 뼈대 코드를 webRTC 엄청 고수로 추정되는 유투버가 제공하는 tutorial 로 구현한 부분을 공유해본다. simple peer를 이용하여 아주 간단한 예제를 학습해봤다. 
 
-코드 전문은 여기서 확인 가능하다. 😎
+코드 전문은 여기서 확인 가능하다. 😎 (여기서 signaling server는 server.js)
 
 https://github.com/chloejiwon/coronabusters/tree/webrtc_basic_tutorial
 
@@ -64,13 +69,20 @@ https://github.com/chloejiwon/coronabusters/tree/webrtc_basic_tutorial
 2. clinet B가 브라우저에 접속하여 signaling server에 알린다. 엇 근데 기다리는 client A가 있네? signaling server는 A의 socket 정보를 B에 보낸다. 
 3. A의 정보를 받은 B는 A에 대해  createPeer 을 한다. 그리고 B의 peer signal를 signaling server에 전송한다. 
 4. signaling server에서는 B의 signal을 A에게 전송한다. A또한 peer을 만들고, A의 signal을 signaling server에 전송하고, peer에도 signal한다. 
-5. B가 signaling server에서 정보 받으면, A에게 signal한다. (==> 이제 P2P연결이 맺어진 것. 각 peer로 data, media stream을 주고받을 수 있다.)
+5. B가 signaling server에서 정보 받으면, A에게 signal한다. (이제 P2P연결이 맺어진 것. 각 peer로 data, media stream을 주고받을 수 있다.)
 
 
 
+내가 github에 구현해놓은 부분은 N:N 다대다 통신이다. 당연히 p2p 니까, 얘네는 모두가 모두랑 연결되어 있으면 되는거다. Client 한 명이 방에 들어오면 방에 있는 모든 친구들의 socket id 리스트를 보내준다. 그럼 새로 방에 들어온 client가 각 친구들에게 signal을 보내 peer connection을 맺는다. 모두가 모두랑 연결되어 있으므로 N명이 있다면 전체 connection의 갯수는 N*(N-1)/2 이다. (친구를 그래프의 노드라고 생각하면 연결할 수 있는 모든 간선의 수) 여기까지 하면 아주 간단하게 친구의 stream을 얻어와 서로 데이터 공유를 할 수 있게 된다. 🎉
 
 
+
+이제 나는 자기 비디오에 Tensorflow js 모델을 통해 object detection을 하고자 하는데 이거는 다음 편에 이어서 마무리하도록 하겠다. 🤟🏼
+
+  
 # 🎉 reference 
 
 * http://jaynewho.com/post/36
 * http://webrtc.org
+* https://www.youtube.com/watch?v=R1sfHPwEH7A
+
