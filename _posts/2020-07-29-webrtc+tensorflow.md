@@ -27,7 +27,7 @@ last_modified_at: 2020-07-26T01:11:00-05:00
 - [reference](#reference)
 
 
-  
+
 # 🚦 webRTC가 뭐냐?
 
 WebRTC는 web application간에 실시간 통신 기능을 제공하는 기술. 특히 마이크나 스피커, 영상같은 데이터를 실시간으로 peer connection으로 별도 서버 없이 가능하게 해준다.  (심지어 screen sharing도 가능하다고 함 ) 그럼 간단한 동작 방식을 살펴보자! 
@@ -36,7 +36,7 @@ WebRTC는 web application간에 실시간 통신 기능을 제공하는 기술. 
 
 ![webrtc-topology](https://webrtc-security.github.io/images/diagram_1_en.png)
 
-아주아주 간단한 webrtc topology는 위와 같다. Alice와 Bob이 각자 컴퓨터에서 browser를 키면, signaling server에 signal을 전송하게 된다. Signaling은 RTCPeerConnection들이 적절하게 데이터를 교환할 수 있게 처리하는 복잡한 과정이다. Signaling server는 피어와 피어가 서로를 찾을 수 있도록 도와주는 서버. Signaling 단계에선 서로 Connection을 맺기 이전 아래와 같은 정보를 교환하도록 해줍니다.   
+아주아주 간단한 webrtc topology는 위와 같다. Alice와 Bob이 각자 컴퓨터에서 browser를 키면, signaling server에 signal을 전송한다. Signaling은 RTCPeerConnection들이 적절하게 데이터를 교환할 수 있게 처리하는 복잡한 과정이다. Signaling server는 피어와 피어가 서로를 찾을 수 있도록 도와주는 서버. Signaling 단계에선 서로 Connection을 맺기 이전 아래와 같은 정보를 교환하도록 해줍니다.   
 
 
 
@@ -52,7 +52,7 @@ WebRTC는 web application간에 실시간 통신 기능을 제공하는 기술. 
 
 
   
-  
+
 #  🎓 webRTC 구현하기 
 
 프로젝트에서 사용한 기본적인 뼈대 코드를 webRTC 엄청 고수로 추정되는 유투버가 제공하는 tutorial 로 구현한 부분을 공유해본다. simple peer를 이용하여 아주 간단한 예제를 학습해봤다. 
@@ -73,13 +73,12 @@ https://github.com/chloejiwon/coronabusters/tree/webrtc_basic_tutorial
 
 
 
-내가 github에 구현해놓은 부분은 N:N 다대다 통신이다. 당연히 p2p 니까, 얘네는 모두가 모두랑 연결되어 있으면 되는거다. Client 한 명이 방에 들어오면 방에 있는 모든 친구들의 socket id 리스트를 보내준다. 그럼 새로 방에 들어온 client가 각 친구들에게 signal을 보내 peer connection을 맺는다. 모두가 모두랑 연결되어 있으므로 N명이 있다면 전체 connection의 갯수는 N*(N-1)/2 이다. (친구를 그래프의 노드라고 생각하면 연결할 수 있는 모든 간선의 수) 여기까지 하면 아주 간단하게 친구의 stream을 얻어와 서로 데이터 공유를 할 수 있게 된다. 🎉
+내가 github에 구현해놓은 부분은 N:N 다대다 통신이다. 당연히 p2p 니까, 얘네는 모두가 모두랑 연결되어 있으면 되는거다. Client 한 명이 방에 들어오면 방에 있는 모든 친구들의 socket id 리스트를 보내준다. 그럼 새로 방에 들어온 client가 각 친구들에게 signal을 보내 peer connection을 맺는다. 모두가 모두랑 연결되어 있으므로 N명이 있다면 전체 connection의 갯수는 N*(N-1)/2 이다. (친구를 그래프의 노드라고 생각하면 연결할 수 있는 모든 간선의 수) 여기까지 하면 아주 간단하게 친구의 stream을 얻어와 서로 데이터 공유할 수 있다. 🎉
 
 
 
 이제 나는 자기 비디오에 Tensorflow js 모델을 통해 object detection을 하고자 하는데 이거는 다음 편에 이어서 마무리하도록 하겠다. 🤟🏼
 
-  
 # 🎉 reference 
 
 * http://jaynewho.com/post/36
