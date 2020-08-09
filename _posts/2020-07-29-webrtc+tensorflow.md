@@ -8,6 +8,7 @@ tags:
   - tensorflow, javascript
 last_modified_at: 2020-07-26T01:11:00-05:00
 
+
 ---
 
 
@@ -102,6 +103,9 @@ $ npm install @tensorflow/tfjs
 ```
 
 하여튼 이렇게 하면 `http://location:3000`에 접속하면 create room화면이 뜨고, 누르면 자기 얼굴이 턱 등장. 
+
+이제 나는 자기 비디오에 Tensorflow js 모델을 통해 object detection을 하고자 하는데 이거는 다음 편에 이어서 마무리하도록 하겠다. 🤟🏼
+
 
 이제 나는 자기 비디오에 Tensorflow js 모델을 통해 object detection을 하고자 하는데 이거는 다음 편에 이어서 마무리하도록 하겠다. 🤟🏼
 
