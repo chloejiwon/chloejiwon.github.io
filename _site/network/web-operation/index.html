@@ -1,0 +1,712 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>주소 창에 www.naver.com 치면 일어나는 일들  - JJIONI NOTES</title>
+<meta name="description" content="WEB 동작 원리 ">
+
+
+  <meta name="author" content="JJIONI">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="JJIONI NOTES">
+<meta property="og:title" content="주소 창에 www.naver.com 치면 일어나는 일들">
+<meta property="og:url" content="http://localhost:4000/network/web-operation/">
+
+
+  <meta property="og:description" content="WEB 동작 원리 ">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-05-05T00:00:00+00:00">
+
+
+
+  <meta property="article:modified_time" content="2020-05-05T06:11:00+00:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/network/web-operation/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "JJIONI",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="JJIONI NOTES Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          JJIONI NOTES
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/projects/" >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/" >Category</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/emoji-xx.png" alt="JJIONI" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">JJIONI</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p><strong>software development engineer</strong></p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Somewhere</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:chloe326o.o@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+          
+        
+          
+            <li><a href="https://chloejiwon.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
+          
+        
+          
+            <li><a href="https://github.com/chloejiwon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="주소 창에 www.naver.com 치면 일어나는 일들">
+    <meta itemprop="description" content="WEB 동작 원리">
+    <meta itemprop="datePublished" content="2020-05-05T00:00:00+00:00">
+    <meta itemprop="dateModified" content="2020-05-05T06:11:00+00:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">주소 창에 www.naver.com 치면 일어나는 일들
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="web-동작-원리">WEB 동작 원리</h1>
+
+<blockquote>
+  <p>빽 투더 베이직이다 ~ 탄탄 탄탄🧘🏻 ‍(수양 중) 주소창에 www.naver.com을 검색하면 어떤 일이 일어날까? 결국엔 WEB이란 어떻게 동작할까를 알아보자.</p>
+</blockquote>
+
+<h2 id="-table-of-contents">🗒 Table of Contents</h2>
+<ul>
+  <li><a href="#설마-이건-알겠지">설마 이건 알겠지?</a>
+    <ul>
+      <li><a href="#ip-domain-dns">IP와 Domain, DNS</a></li>
+    </ul>
+  </li>
+  <li><a href="#web-동작방식">WEB 동작방식</a></li>
+  <li><a href="#reference">reference</a></li>
+</ul>
+
+<h2 id="설마-이건-알겠지">설마 이건 알겠지?</h2>
+
+<blockquote>
+  <p>아는 것 같은데 막상 설명해봐라! 하면 못할 수 있으니까 정리를 하자.</p>
+</blockquote>
+
+<h3 id="ip-domain-dns">IP Domain DNS</h3>
+
+<h4 id="ip">IP</h4>
+
+<p>Internet Protocol의 약자로, 네트워크상에서 컴퓨터가 다른 컴퓨터와 구별되어 지는 번호이다. 인터넷에 접속할때 컴퓨터 각각에 부여 받는 주소 혹은 전화번호라고 보면 됨.</p>
+
+<h4 id="domain-name">Domain Name</h4>
+
+<p>IP주소가 숫자로만 구성되어 있으니 외우기 힘들기 때문에, 이 IP주소를 문자로 표현한 도메인 주소 등장.(ex www.naver.com) 예를 들어, 010-1234-1234 외우고 다니기 힘드니까 핸드폰 전화번호부에 이건 A 이렇게 저장해 두는 것. 우리가 핸드폰에서 A에게 통화하기를 누르면, 실제로 ‘A’한테 전화거는게 아닌 010-1234-1234에 전화를 거는 것처럼 우리가 www.naver.com하면 해당 IP주소로 변경해서 접속해야 한다. 이렇게 domain name과 IP주소쌍을 한 쌍으로 가지고 있는 데이터 시스템을 <strong>DNS(Domain Name System)</strong> 이라고 부른다.</p>
+
+<h2 id="web-동작방식">WEB 동작방식</h2>
+<hr />
+
+<p><img src="/assets/images/web-operation.png" alt="web동작방식" /></p>
+
+<hr />
+
+<h3 id="1-사용자가-웹-브라우저에-도메인-네임을-입력한다-주소창에-wwwnavercom을-친다">1. 사용자가 웹 브라우저에 도메인 네임을 입력한다. (주소창에 www.naver.com을 친다)</h3>
+
+<h3 id="2-웹-브라우저가-url을-해석한다">2. 웹 브라우저가 URL을 해석한다.</h3>
+
+<ul>
+  <li>
+    <p>어떤 프로토콜을 사용하는지 .. 
+  (http, telnet, ftp …)</p>
+  </li>
+  <li>
+    <p>ip 정보가 필요한지 (:다음에 //있으면 필요하다고 판단)</p>
+  </li>
+</ul>
+
+<h3 id="3-url문법에-맞으면-punycode-encoding을-url의-host부분에-적용하고-hstshttp-strict-transport-security목록-로드해서-확인한다">3. URL문법에 맞으면, punycode encoding을 url의 host부분에 적용하고 HSTS(HTTP strict Transport Security)목록 로드해서 확인한다.</h3>
+
+<ul>
+  <li>
+    <p>url 문법 안맞으면 그냥 기본 검색엔진으로 넘어감</p>
+  </li>
+  <li>
+    <p>hsts 목록에 있으면 https로 보내고 아니면 http로 보냄</p>
+  </li>
+</ul>
+
+<h3 id="4-dns-domain-name-server에-조회한다">4. DNS (Domain Name Server)에 조회한다.</h3>
+
+<ul>
+  <li>
+    <p>Browser에 해당 domain이 cache되어 있나 확인! 되어있으면 굳이 서버 조회 안해도 됨</p>
+  </li>
+  <li>
+    <p>없으면, 로컬에 저장돼 있는 hosts파일에서 참조할 수 있는 Domain이 있는지 확인한다.</p>
+  </li>
+  <li>
+    <p>모두 없으면 Network Stack에 구성되어 있는 DNS로 요청을 보낸다.</p>
+  </li>
+  <li>
+    <p>DNS는 도메인 주소에 해당하는 ip 주소를 알려준다.</p>
+  </li>
+</ul>
+
+<h3 id="5-arpaddress-resolution-protocol로-대상의-ip와-mac-address를-알아낸다">5. ARP(Address Resolution Protocol)로 대상의 IP와 MAC address를 알아낸다.</h3>
+
+<h3 id="6-대상과-tcp-통신을-통해-socket을-연다">6. 대상과 TCP 통신을 통해 socket을 연다.</h3>
+
+<p>1) 브라우저가 대상 서버의 IP 주소를 받으면 URL에서 해당 포트 번호(HTTP의 기본값은 80, HTTPS의 기본값은 443)를 가져와서, TCP Socket stream 요청</p>
+
+<p>2) TCP segment가 만들어지는 Transport Layer(OSI Model Layer 4)로 전달. 대상 포트 header에 추가되고 source port는 시스템에서 동적 포트 범위내에서 임의 지정</p>
+
+<p>3) TCP segment를 Network Layer(OSI Model Layer 3)로 전달. segment header에 대상 컴퓨터의 IP주소와 현재 컴퓨터의 IP주소가 삽입된packet 구성</p>
+
+<p>4) packet이 Link Layer(OSI Model Layer 2)로 전달. 시스템의 MAC address와 gateway(local router)의 MAC주소를 포함하는 Frame header 추가 (gateway의 MAC address를 모르는경우 ARP를 이용해 찾아야 한다.)</p>
+
+<p>5) packet이 ethernet, Wifi, Cellular data network 중 하나로 전송</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 광인터넷을 쓸 경우 modem을 통해 광신호로 변경된 후 network node로 직접 전송
+</code></pre></div></div>
+
+<p>6) packet local subnet router 도착, AS(Autonomous System)경계 router들을 통과</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  해당 라우터에선 packet의 IP header에서 target address를 추출하여 적당한 다음 hop으로 routing 
+
+  IP header의 TTL(Time To Live)필드는 통과하는 라우터의 대해 하나씩 감소
+
+  TTL필드가 0이 되거나 현재 router 대기열에 공간이 없으면 네트워크 정체로 packet 삭제
+</code></pre></div></div>
+
+<p><img src="/assets/images/tcp-operation.jpeg" alt="TCP socket 통신 과정" /></p>
+
+<h3 id="7-https인-경우-ssltls-handshake가-추가된다">7. HTTPS인 경우 SSL(TLS) handshake가 추가된다.</h3>
+
+<ul>
+  <li>TCP socket 통신과정 전에 TLS 통신이 추가된다.</li>
+</ul>
+
+<h3 id="8-http-프로토콜로-요청한다">8. HTTP 프로토콜로 요청한다.</h3>
+
+<p><code class="highlighter-rouge">
+GET / HTTP/1.1
+Host: google.com
+Connection: close
+[other headers]
+</code></p>
+
+<p>서버로 부터 html 응답을 받는다.</p>
+
+<h3 id="9-http서버가-응답한다">9. HTTP서버가 응답한다.</h3>
+
+<p>HTTPD(HTTP daemon) 서버는 요청 / 응답을 처리하는 서버이다. 가장 일반적인 HTTPD 서버는 Linux의 경우 Apache 또는 Nginx이고 Windows의 경우 IIS이다.</p>
+
+<h3 id="10-웹-브라우저가-그린다">10. 웹 브라우저가 그린다.</h3>
+
+<ul>
+  <li>서버가 리소스를 브라우저에게 제공하면 브라우저는 렌더링 등을 수행하여 화면을 그린다.</li>
+</ul>
+
+<h2 id="reference">reference</h2>
+
+<ul>
+  <li>
+    <p>https://sophia2730.tistory.com/entry/DNS-%EC%A3%BC%EC%86%8C%EC%B0%BD%EC%97%90-wwwnavercom%EC%9D%84-%EC%B9%98%EB%A9%B4-%EC%9D%BC%EC%96%B4%EB%82%98%EB%8A%94-%EC%9D%BC</p>
+  </li>
+  <li>
+    <p>https://github.com/SantonyChoi/what-happens-when-KR#id7</p>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/" class="page__taxonomy-item" rel="tag"></a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#web" class="page__taxonomy-item" rel="tag">web</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/" class="page__taxonomy-item" rel="tag"></a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#network" class="page__taxonomy-item" rel="tag">network</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-05-05">May 5, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EC%A3%BC%EC%86%8C+%EC%B0%BD%EC%97%90+www.naver.com+%EC%B9%98%EB%A9%B4+%EC%9D%BC%EC%96%B4%EB%82%98%EB%8A%94+%EC%9D%BC%EB%93%A4+%20http%3A%2F%2Flocalhost%3A4000%2Fnetwork%2Fweb-operation%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fnetwork%2Fweb-operation%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fnetwork%2Fweb-operation%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/docker/docker-basics-first/" class="pagination--pager" title="docker 좋은데 ?! - 1
+">Previous</a>
+    
+    
+      <a href="/recommend%20system/matrix-factorization/" class="pagination--pager" title="추천 시스템 - Matrix Factorization 기초 원리와 구현 방법
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C/ibm-clouders-notetaking/" rel="permalink">IBM Cloud Essentials Badge 획득하기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">IBM CLOUD essentials 무료강의 듣고 badge 따자!
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EC%9B%B9,%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/webrtc+tensorflow/" rel="permalink">WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 1탄
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">webrtc 와 tensorflow js 모델로 object detection해보기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/recommend%20system/matrix-factorization/" rel="permalink">추천 시스템 - Matrix Factorization 기초 원리와 구현 방법
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Python을 이용한 matrix factorization 구현
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docker/docker-basics-first/" rel="permalink">docker 좋은데 ?! - 1
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  6 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">~ 아무것도 모르고 이미지 만들어보기 ~
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://chloejiwon.github.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 JJIONI. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

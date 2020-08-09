@@ -1,0 +1,646 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>추천 시스템 - Matrix Factorization 기초 원리와 구현 방법 - JJIONI NOTES</title>
+<meta name="description" content="Python을 이용한 matrix factorization 구현 ">
+
+
+  <meta name="author" content="JJIONI">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="JJIONI NOTES">
+<meta property="og:title" content="추천 시스템 - Matrix Factorization 기초 원리와 구현 방법">
+<meta property="og:url" content="http://localhost:4000/recommend%20system/matrix-factorization/">
+
+
+  <meta property="og:description" content="Python을 이용한 matrix factorization 구현 ">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-05-30T00:00:00+00:00">
+
+
+
+  <meta property="article:modified_time" content="2020-05-30T06:11:00+00:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/recommend%20system/matrix-factorization/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "JJIONI",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="JJIONI NOTES Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          JJIONI NOTES
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/projects/" >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/" >Category</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/emoji-xx.png" alt="JJIONI" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">JJIONI</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p><strong>software development engineer</strong></p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Somewhere</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:chloe326o.o@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+          
+        
+          
+            <li><a href="https://chloejiwon.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
+          
+        
+          
+            <li><a href="https://github.com/chloejiwon" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="추천 시스템 - Matrix Factorization 기초 원리와 구현 방법">
+    <meta itemprop="description" content="Python을 이용한 matrix factorization 구현">
+    <meta itemprop="datePublished" content="2020-05-30T00:00:00+00:00">
+    <meta itemprop="dateModified" content="2020-05-30T06:11:00+00:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">추천 시스템 - Matrix Factorization 기초 원리와 구현 방법
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="-table-of-contents">🗒 Table of Contents</h1>
+
+<ul>
+  <li><a href="#matrix-factorization-이란">Matrix Factorization 무어냐?</a></li>
+  <li><a href="#matrix-factorization의-기본개념">Matrix Factorization의 기본 개념</a>
+    <ul>
+      <li><a href="#matrix-factorization의-동작방식">matrix factorization의 동작방식</a></li>
+    </ul>
+  </li>
+  <li><a href="#marix-factorization-구현">Matrix Factorization 구현</a></li>
+  <li><a href="#reference">reference</a></li>
+</ul>
+
+<h1 id="matrix-factorization-이란">Matrix Factorization 이란?</h1>
+
+<h1 id="matrix-factorization의-기본개념">Matrix Factorization의 기본개념</h1>
+
+<blockquote>
+  <p>Matrix Factorization을 이해하기 위하여 필요한 개념들을 정리해보자. 오랜만에 선형대수학 다루니까 굉장히 생소(?)하면서 재밌다. 🤪 기하학적 의미, 데이터적으로 생각했을때… 이렇게 여러 관점에서 생각하니까 의외로 이해가 좀 쉽다.</p>
+</blockquote>
+
+<h2 id="pca-principal-component-analysis">PCA (Principal Component Analysis)</h2>
+
+<p>PCA는 데이터의 구조를 <strong>잘</strong> 살려주면서 차원 감소를 할 수 있게 해주는 방법이다. 차원 감소를 위해선, 선형대수학적으로 <strong>정사영</strong>이라는 방법을 이용한다. 그럼 우리는 어떤 벡터에 정사영 해야 데이터 구조를 <strong>잘</strong> 살렸다고 소문이 날까? 🧐</p>
+
+<p><img src="https://t1.daumcdn.net/cfile/tistory/25388D40527C43DB0B" alt="2D에서의PCA" /></p>
+
+<p>위 xy축에 있는 데이터들의 분포를 보자. 저 검정색이 데이터들을 모아놓은 거라고 한다면, 이 데이터의 분포 특성을 2개의 벡터로 가장 잘 설명할 수 있는 방법은 e1, e2 두 개의 벡터로 데이터 분포를 설명하는 것이다. e1의 방향과 크기 &amp; e2의 방향과 크기를 알면 데이터 분포가 어떤 형태 인지 가장 단순하고 효과적으로 파악 할 수 있다. (데이터 하나 하나 분석하는 게 아니라, 하나의 분포를 이룰때를 분석하는 것). 근데 사실 e1, e2는 아무 축이나 될 수 있다. 하지만 데이터의 구조를 <strong>잘</strong> 살리려면, 아무 축이나 잡아선 안된다! 기준은 분산이 크면 클 수록, 데이터의 구조를 잘 살린것. 그도 그럴게 분산이 크단 소리는 데이터를 차원 축소 시켜도, 각각의 특징이 잘 살아있단 소리니까. 그럼 축 중에서도 정사영 했을 때의 분산이 제~일 큰 축을 찾아야 하는 문제가 된다. 여기서 <code class="highlighter-rouge">공분산행렬</code>과 <code class="highlighter-rouge">eigenvalue</code> 와 <code class="highlighter-rouge">eigenvector</code> 의 의미를 되살펴보자. <code class="highlighter-rouge">공분산행렬</code>은 각 feature가 얼마나 서로 닮아있는가, 서로서로 영향을 끼치는가에 대한 정보를 담고 있다. X^T*X니까, 각 feature의 내적 값을 가지고 있는 행렬이다. (참고로 내적은, dot(a,b)라면, b라는 기준 벡터에서, a벡터가 얼마나 b의 성분을 가지고 있는가? 의 값이라고 생각해도 된다. ) 공분산행렬의 eigenvector는 공분산행렬의 그 행렬이 벡터에 작용하는 주축의 방향을 나타내므로, 데이터가 어떤 방향으로 분산되어 있는 지를 나타내준다. 그리고 eigenvalue는 그 eigenvector방향으로 얼마만큼의 크기로 벡터공간이 늘려지는 가를 의미하므로 eigenvalue 큰 값부터 eigenvector를 구하면 중요한 순서대로 주성분을 구하는 것이 된다.</p>
+
+<p>따라서 주성분인 e1과 e2는 데이터들을 평균 0으로 만들었을 때의 공분산의 <code class="highlighter-rouge">eigenvector</code>이다. (2차원이니까 eigenvector 2개) 아무리 데이터를 늘리고 (=선형변환해도) 크기에만 영향받지 방향에는 영향을 받지 않는 벡터. 우리는 그런 벡터들에 정사영 시켜 차원을 축소 할 수 있다. 그리고 e1과 e2중에 데이터들의 분산(=variance)이 가장 큰 방향벡터는 e1에 해당한다. 즉 e1에 데이터를 정사영시켜 1차원의 데이터를 만들었을 때 우리는 데이터 구조를 아주 잘 살리며 차원을 감소했다고 말할 수 있다.
+<br />
+PCA는 주성분을 분석하는건데, 그럼 주성분이 뭐야?! <b>주성분(Principle Component, Score)</b>은 사영변환된 후의 변수이다. 그리고 주성분은 원래 변수들의 선형 결합으로 이루어졌다.</p>
+
+<p><del>
+여기서 우리가 주목해야하는 사실은 다음과 같다.
+<br />
+주성분의 linear combination으로 original matrix를 표현할 수 있다는 것. 즉, 모든 사람의 얼굴은 각 특징들을 조합해서 만들 수 있다는 것 (좀 무섭다😂)
+</del></p>
+
+<h3 id="latent-factors">Latent Factors</h3>
+
+<p>Latent Factor모형의 목적은 typical vector을 찾는것이다. 복잡한 사용자, 영화 특성을 몇개의 벡터로 간략화 하겠다는 것. 이때 쓰이는 방법이 PCA이다. 각 typical vector은 데이터에 해당하는 한 가지 특징을 가지고 있다. 예를 들어, 한 Typical guy는 <strong>늙은</strong>사람, 한 typical guy는 <strong>안경 쓴</strong>사람 등등…그리고 이러한 “늙었다” 거나 “안경을 쓴다” 는 특징을 <strong>Latent Factor</strong>라고 부른다. 즉, 각 주성분은 특정한 하나의 latent factor를 가지고 있다.</p>
+
+<h2 id="svd-singular-value-decomposition">SVD (Singular Value Decomposition)</h2>
+
+<p>SVD는 임의의 M x N 차원의 행렬에 대해서 행렬의 곱으로 행렬을 분해하는 방법 중 하나이다. SVD는 R을 입력 받아, 다음과 같은 M, Σ(대각행렬), U를 반환하는 알고리즘이다.</p>
+
+<p><img src="https://t1.daumcdn.net/cfile/tistory/9909C6465B125C9E24" alt="SVD공식" /></p>
+
+<p>시그마는 대각행렬이고, 시그마를 제외하고 얘기해도 크게 문제가 없다.</p>
+
+<p><img src="https://t1.daumcdn.net/cfile/tistory/99D5E34A5B1261A81F" alt="SVD공식2" /></p>
+
+<p><img src="https://t1.daumcdn.net/cfile/tistory/99F01A445B12622833" alt="rui공식" /></p>
+
+<p>rui는 user가 item에 가지는 선호도라고 하자. pu는 user에 대한 정보, qi는 item에 대한 정보다.</p>
+
+<h1 id="matrix-factorization-구현">Matrix Factorization 구현</h1>
+
+<p>그럼 주어진 matrix R이 sparse하다면 빈 값을 어떻게 추정하여 구할 수 있을까? (= 추천시스템)
+여러가지 방법이 있겠지만, Gradient Discent방식을 사용하여 구현해보자. (딥러닝에서 많이 쓰이는 방식) 랜덤한 값으로 p와 q를 셋팅하고 training하면서 RSME를 최소값으로 만드는 값을 찾는다. 아는 rui에 대해서 제일 좋은 p와 q를 찾아서, 나머지 빈 값을 계산하도록 한다.</p>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+  <li>
+    <p>https://worthpreading.tistory.com/57</p>
+  </li>
+  <li>
+    <p>http://nicolas-hug.com/blog/matrix_facto_4</p>
+  </li>
+  <li>
+    <p>https://darkpgmr.tistory.com/110</p>
+  </li>
+  <li>
+    <p>http://nicolas-hug.com/blog/matrix_facto_1</p>
+  </li>
+  <li>
+    <p>https://www.youtube.com/watch?v=jNwf-JUGWgg</p>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/" class="page__taxonomy-item" rel="tag"></a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#recommend" class="page__taxonomy-item" rel="tag">recommend</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/" class="page__taxonomy-item" rel="tag"></a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#recommend-system" class="page__taxonomy-item" rel="tag">recommend system</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-05-30">May 30, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EC%B6%94%EC%B2%9C+%EC%8B%9C%EC%8A%A4%ED%85%9C+-+Matrix+Factorization+%EA%B8%B0%EC%B4%88+%EC%9B%90%EB%A6%AC%EC%99%80+%EA%B5%AC%ED%98%84+%EB%B0%A9%EB%B2%95%20http%3A%2F%2Flocalhost%3A4000%2Frecommend%2520system%2Fmatrix-factorization%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Frecommend%2520system%2Fmatrix-factorization%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Frecommend%2520system%2Fmatrix-factorization%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/network/web-operation/" class="pagination--pager" title="주소 창에 www.naver.com 치면 일어나는 일들
+">Previous</a>
+    
+    
+      <a href="/%EC%9B%B9,%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/webrtc+tensorflow/" class="pagination--pager" title="WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 1탄
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C/ibm-clouders-notetaking/" rel="permalink">IBM Cloud Essentials Badge 획득하기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">IBM CLOUD essentials 무료강의 듣고 badge 따자!
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EC%9B%B9,%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/webrtc+tensorflow/" rel="permalink">WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 1탄
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">webrtc 와 tensorflow js 모델로 object detection해보기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/network/web-operation/" rel="permalink">주소 창에 www.naver.com 치면 일어나는 일들
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">WEB 동작 원리
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docker/docker-basics-first/" rel="permalink">docker 좋은데 ?! - 1
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  6 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">~ 아무것도 모르고 이미지 만들어보기 ~
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://chloejiwon.github.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 JJIONI. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
