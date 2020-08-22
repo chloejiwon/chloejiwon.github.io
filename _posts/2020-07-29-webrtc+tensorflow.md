@@ -9,6 +9,8 @@ tags:
 last_modified_at: 2020-07-26T01:11:00-05:00
 
 
+
+
 ---
 
 
@@ -19,16 +21,15 @@ last_modified_at: 2020-07-26T01:11:00-05:00
 
 # 📌 Table of Contents
 
-- [WebRTC가 뭐냐?](#🚦webrtc가-뭐냐)
+- [WebRTC가 뭐냐?](#webrtc가-뭐냐)
   - [webrtc 동작방식](#webrtc-동작방식)
 - [WebRTC구현하기](#webrtc-구현하기)
   - [N:N영상통화](#N:N영상통화)
-- [Tensorflow js모델을 심자](#tensorflow-js모델을-심자)
 - [reference](#reference)
 
 
 
-# 🚦 webRTC가 뭐냐?
+# webRTC가 뭐냐?
 
 WebRTC는 web application간에 실시간 통신 기능을 제공하는 기술. 특히 마이크나 스피커, 영상같은 데이터를 실시간으로 peer connection으로 별도 서버 없이 가능하게 해준다.  (심지어 screen sharing도 가능하다고 함 ) 그럼 간단한 동작 방식을 살펴보자! 
 
@@ -53,13 +54,13 @@ WebRTC는 web application간에 실시간 통신 기능을 제공하는 기술. 
 
   
 
-#  🎓 webRTC 구현하기 
+#  webRTC 구현하기 
 
 프로젝트에서 사용한 기본적인 뼈대 코드를 webRTC 엄청 고수로 추정되는 유투버가 제공하는 tutorial 로 구현한 부분을 공유해본다. simple peer를 이용하여 아주 간단한 예제를 학습해봤다. 
 
 코드 전문은 여기서 확인 가능하다. 😎 (여기서 signaling server는 server.js)
 
-https://github.com/chloejiwon/coronabusters/tree/webrtc_basic_tutorial
+<https://github.com/chloejiwon/coronabusters/tree/webrtc_basic_tutorial>
 
 
 
@@ -106,12 +107,9 @@ $ npm install @tensorflow/tfjs
 
 이제 나는 자기 비디오에 Tensorflow js 모델을 통해 object detection을 하고자 하는데 이거는 다음 편에 이어서 마무리하도록 하겠다. 🤟🏼
 
+# reference 
 
-이제 나는 자기 비디오에 Tensorflow js 모델을 통해 object detection을 하고자 하는데 이거는 다음 편에 이어서 마무리하도록 하겠다. 🤟🏼
-
-# 🎉 reference 
-
-* http://jaynewho.com/post/36
-* http://webrtc.org
-* https://www.youtube.com/watch?v=R1sfHPwEH7A
+* <http://jaynewho.com/post/36>
+* <http://webrtc.org>
+* <https://www.youtube.com/watch?v=R1sfHPwEH7A>
 
