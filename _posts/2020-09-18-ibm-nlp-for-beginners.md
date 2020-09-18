@@ -110,8 +110,6 @@ New project > Create an empty project를 눌러 빈 프로젝트를 생성합니
 
 ![image-20200918234751425](/assets/images/image-20200918234751425.png)
 
-![image-20200918235117034](/Users/jjioni/workspace/chloejiwon.github.io/_posts/image-20200918235117034.png)
-
 노트북이 정말 더럽게 안만들어지네요. 공지 보니 9/18일 Dallas 지역 뭐가 안된다고 써있는 것 같긴 한데...🤬 계속 Start 를 실패하고, Load실패하고... 난리 부르스. 
 
 드디어 성공. 하여튼 이제부터 코드를 작성하면 되는데, 일단 이번엔 watson nlu api를 써보는게 목적이므로 친절한 외국 블로그의 코드를 따라 해보겠습니다. 
