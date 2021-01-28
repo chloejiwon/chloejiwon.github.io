@@ -1,13 +1,15 @@
 ---
-layout: archive
+title: Rohit Jain
+layout: default
 ---
-
-{{ content }}
-
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
-{% for post in paginator.posts %}
-  {% include archive-single.html %}
-{% endfor %}
-
-{% include paginator.html %}
+<div class="mid-section-home">
+    <h1><span>I am </span>{{ site.author_name }}</h1>
+    <div class="row sub-heading">
+        <div class="summary-about-me">
+            <p>{{ page.home_text }}</p>
+        </div>
+        <div class="nav-link">
+            {% include navigation.html %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+<blockquote>
+  <p>ibm CLouders로 활동하면서 ibm CLoud Essentials 강의 들으며 note taking한 거 공유하는 글이다. 클라우드의 개략적인 개념을 이해할 수 있어서 좋았다.</p>
+</blockquote>
+
+<h1 id="iaas--paas--saas">Iaas / Paas / Saas</h1>
+
+<p>aaS = as a Service, how you consume</p>
+
+<ul>
+  <li>Iaas : Infrastructure. For example, my computer, some random other person’s computer running somewhere else …
+    <ul>
+      <li>persona of Iaas is “System admin”</li>
+      <li>It’s like a “leasing a car”</li>
+    </ul>
+  </li>
+  <li>Paas : Platform.
+    <ul>
+      <li>persona is “Developer”</li>
+      <li>renting a car</li>
+    </ul>
+  </li>
+  <li>Saas : Software
+    <ul>
+      <li>taking taxi / Uber</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/image-20200809084416216.png" alt="image-20200809084416216" style="zoom:50%;" /></p>
+
+<hr />
+
+<h1 id="cloud-native">Cloud Native</h1>
+
+<p><img src="https://d1fto35gcfffzn.cloudfront.net/images/topics/cloudnative/diagram-cloud-native.png" alt="Cloud-Native" style="zoom:33%;" /></p>
+
+<p>Microservice, Container를 Cloud native application으로 개발</p>
+
+<hr />
+
+<h1 id="infrastructure-as-a-service">Infrastructure as a Service</h1>
+
+<ul>
+  <li>Bare Metal Server ?
+    <ul>
+      <li>A dedicated physical server which is yours to use and manage from the ‘metal up’</li>
+      <li>No sharing of underlying hardware</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="virtual-private-cloud-vpc">Virtual Private Cloud (VPC)</h2>
+
+<p>traditional cloud works like this. Network engineers have to do all network system things. routers, VPN, …</p>
+
+<p><img src="/assets/images/image-20200809092240180.png" alt="image-20200809092240180" style="zoom:50%;" /></p>
+
+<p>However «Virtual Networking» , all of these capabilities is given as a service. User can create these functions and the segmentation with a UI or CLI or API without knowing any proprietary interfaces.</p>
+
+<p>VPC is isolated logical network that you create. this includes Multi Region Zone(MZR), Sequrity Groups , Connectivity. Other services are provided to support VPC like Load Balancing.</p>
+
+<h2 id="vmware">VMWare</h2>
+
+<p>What IBM cloud gives:</p>
+
+<ul>
+  <li>Data sovereignty compliance - Geo-Fencing for workloads,  Data doeson’t cross borders</li>
+  <li>Compliance and regulatory control</li>
+</ul>
+
+<hr />
+
+<h1 id="platform-as-a-service">Platform as a Service</h1>
+
+<p>There’s a lot of technologies for doing cloud-native transformation.</p>
+
+<p>Let’s see from the bottom with bare-bones physical infrasturcture.</p>
+
+<p>legacy applications &gt; VMs &gt; Kubernates &gt; <strong>Cloud Foundry</strong> &gt; Serverless</p>
+
+<h2 id="cloud-foundry">Cloud Foundry</h2>
+
+<p>very developer focused approach. increased speed &amp; ease. For example, what developer would do with cloud foundry is like this. Let’s say you developed front application with react. You can deploy app with CLI tool CF(cloud foundry). Cloud Foundry takes your app and runs your app with the environment of cloud. You don’t need to care about security, infrastructure. Then if you are to change your backend application into container, you can use CLI tool <strong>kubectl</strong> to deploy to cloud. Backend container &amp; front app are running in the same environnment.</p>
+
+<p><img src="/assets/images/image-20200809224240804.png" alt="image-20200809224240804" /></p>
+
+<h2 id="container-orchestration">Container Orchestration</h2>
+
+<blockquote>
+  <p>Before starting, Let’s look at quick explanation of “Container”. A container is a unit of software that contains all the components required to run and application, including all its dependencies, libraries, other binaries and so on.</p>
+</blockquote>
+
+<p>Let’s look at what container orchestration platform like k8s does. It uses “Worker node” just like vm, computer.</p>
+
+<ol>
+  <li>Deploy</li>
+  <li>Scaling</li>
+  <li>Network (ex. with scaling, platform should do load-balancing and connect other microservices)</li>
+  <li>Insight (logging, anaylitics, …)</li>
+</ol>
+
+<h2 id="red-hat-openshift">Red Hat OpenShift</h2>
+
+<p>OpenShift is a platform as a service offering from Red Hat, built on Kubernates technology. OpenShift simplifies the use of Kubernetes by taking away many of the decisions that normally need to be made when using Kubernetes. As an example, a developer, can concentrate on creating application code and let OpenShift create all the Kubernetes configuration by using the Source to Image workflow, which takes your code from a git repository, builds the container then deploys it to OpenShift autogenerating all the deployment configuration needed.</p>
+
+<p>When application or project was created, OpenShift in the backend will create a Jenkins job and pipeline. So all developers need to do is push their code changes to repository(ex. Github).</p>
+
+<ol>
+  <li>Developer push changes to repository</li>
+  <li>Webhook is triggered, then kicks off a Jenkins job.</li>
+  <li>Jenkins job will create “Sourced image”, which means creating a Docker image out of that source code.</li>
+  <li>Take this and put it into a private restiry.</li>
+  <li>OpenShift will push this into a cluster.</li>
+  <li>Bring down the old version, and start the new version.</li>
+</ol>
+
+<h2 id="knatvie">KNatvie</h2>
+
+<p>It is the platform that on top of kubernetes, supports function serverless. We have three components on top of kubernetes, BUILD &amp; SERVE &amp; EVENT. With Knative, we can make all build process into one kubernetes cluster.</p>
+
+<hr />
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+  <li>https://tanzu.vmware.com/kr/cloud-native</li>
+  <li></li>
+</ul>
