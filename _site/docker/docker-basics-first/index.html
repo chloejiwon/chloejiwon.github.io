@@ -167,7 +167,7 @@
       
 
       
-        <img src="/assets/images/emoji-xx.png" alt="JJIONI" itemprop="image">
+        <img src="/assets/images/jjioni_logo.png" alt="JJIONI" itemprop="image">
       
     </div>
   
@@ -318,7 +318,7 @@
 
 <h2 id="docker란">docker란?</h2>
 
-<p><strong>컨테이너 기반의 오픈소스 가상화 플랫폼</strong>이다. 다양한 프로그램, 실행환경을 컨테이너로 추상화하여 동일한 인터페이스를 제공해서 프로그램의 배포 및 관리를 단순화하게 해준다. 그리고 어디에서나 실행할 수 있도록 해준다. 내가 경험한 docker로 말하자면, 어떤 환경에서, 얼마나 패키지가 업데이트 진행된 상태더라도(=시간이  흘렀어도) 똑같은 프로그램이 똑같이 동작하게 된다는 거다. <code class="highlighter-rouge">내 코드에는 전혀 이상 없는것 같은데 왜 안돼?</code>하면서 구글링하며 삽질하는 시간을 save할 수 있다는 점 😌</p>
+<p><strong>컨테이너 기반의 오픈소스 가상화 플랫폼</strong>이다. 다양한 프로그램, 실행환경을 컨테이너로 추상화하여 동일한 인터페이스를 제공해서 프로그램의 배포 및 관리를 단순화하게 해준다. 그리고 어디에서나 실행할 수 있도록 해준다. 내가 경험한 docker로 말하자면, 어떤 환경에서, 얼마나 패키지가 업데이트 진행된 상태더라도(=시간이  흘렀어도) 똑같은 프로그램이 똑같이 동작하게 된다는 거다. <code class="language-plaintext highlighter-rouge">내 코드에는 전혀 이상 없는것 같은데 왜 안돼?</code>하면서 구글링하며 삽질하는 시간을 save할 수 있다는 점 😌</p>
 
 <h2 id="docker의-기본개념">docker의 기본개념</h2>
 
@@ -348,7 +348,7 @@
 
 <p>일단 기본이 되는 ubuntu 18.04 이미지를 받아왔다.</p>
 
-<p><code class="highlighter-rouge">docker pull ubuntu:18.04</code></p>
+<p><code class="language-plaintext highlighter-rouge">docker pull ubuntu:18.04</code></p>
 
 <div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜  ~ docker pull ubuntu:18.04
 18.04: Pulling from library/ubuntu
@@ -362,7 +362,7 @@ docker.io/library/ubuntu:18.04
 </code></pre></div></div>
 
 <p>내가 제대로 받아왔는지 봐보자
-<code class="highlighter-rouge">docker image ls</code></p>
+<code class="language-plaintext highlighter-rouge">docker image ls</code></p>
 
 <div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜  ~ docker image <span class="nb">ls
 </span>REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
@@ -375,7 +375,7 @@ hello-world                     latest              fce289e99eb9        16 month
 
 <p>위에 보면 ubuntu REPOSITORY에 18.04 TAG 되어있는 이미지가 잘 생성된 걸 확인할 수 있다. 그럼 이 이미지를 컨테이너로 실행시켜보자!</p>
 
-<p><code class="highlighter-rouge">docker run -i -it ubuntu /bin/bash</code></p>
+<p><code class="language-plaintext highlighter-rouge">docker run -i -it ubuntu /bin/bash</code></p>
 
 <p>oh ho~ 이제 컨테이너 실행시키고 그 안에 들어온 걸 알 수 있다.</p>
 
@@ -397,15 +397,15 @@ root@640d6ef0849d:/#
 
 <p>그럼 이제 내가 만든 이미지를 내 허브에 올려서 내가 로컬을 옮길때마다 다운받을 수 있도록 하면 좋겠다!</p>
 
-<p><code class="highlighter-rouge">docker stop &lt;&lt;내가 실행한 컨테이너 이름&gt;&gt;</code></p>
+<p><code class="language-plaintext highlighter-rouge">docker stop &lt;&lt;내가 실행한 컨테이너 이름&gt;&gt;</code></p>
 
-<p>(이름은 <code class="highlighter-rouge">docker ps -a</code>해서 알아낼 수 있음)</p>
+<p>(이름은 <code class="language-plaintext highlighter-rouge">docker ps -a</code>해서 알아낼 수 있음)</p>
 
 <p>그리고 지금까지의 컨테이너를 이미지화 한다.</p>
 
-<p><code class="highlighter-rouge">docker commit -a "&lt;&lt;author name&gt;&gt;" &lt;&lt;container_id&gt;&gt; image_name/tag</code></p>
+<p><code class="language-plaintext highlighter-rouge">docker commit -a "&lt;&lt;author name&gt;&gt;" &lt;&lt;container_id&gt;&gt; image_name/tag</code></p>
 
-<p>이제 <code class="highlighter-rouge">docker images</code>하면 아마 내가 만든 이름을 찾을 수 있을 것이다!</p>
+<p>이제 <code class="language-plaintext highlighter-rouge">docker images</code>하면 아마 내가 만든 이름을 찾을 수 있을 것이다!</p>
 
 <div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜  ~ docker commit <span class="nt">-a</span> <span class="s2">"chloejiwon"</span> busy_gould test1/test 
 sha256:b06a2521461631c2c394f5a025ff7ba6825fa13c29444b47f615ed8d89fe762d
@@ -421,14 +421,14 @@ hello-world
 </code></pre></div></div>
 <p>그럼 이제 내가 잘 만든 이미지를 docker hub에 업로드 해보자</p>
 
-<p><code class="highlighter-rouge">docker tag test1/test chloejiwon/test:1.0</code>
+<p><code class="language-plaintext highlighter-rouge">docker tag test1/test chloejiwon/test:1.0</code>
 우리가 생성한 이미지의 이름을 repository에 업로드하기 위해 고유 태그로 바꾼다.</p>
 
-<p><code class="highlighter-rouge">docker push chloejiwon/test:1.0</code>
+<p><code class="language-plaintext highlighter-rouge">docker push chloejiwon/test:1.0</code>
 하면, 이제 막 내 docker hub에 push 된다. 쭉쭉..</p>
 
 <blockquote>
-  <p>&lt;5/26일 추가&gt; 오메 신기한겨… IBM Cloud에서 제공해주는 <code class="highlighter-rouge">웹사이트에서 코로나19(COVID-19) 위기 대응 커뮤니케이션 챗봇 통합하기</code> 튜토리얼을 한번 해보려고 했고, 또 로컬에 깔기 싫어서 ubuntu docker 이미지 사용했다. ubuntu 컨테이너에다가 curl 깔고 IBM Cloud CLI 깔아야 된다 그러길래(튜토리얼 무한 신뢰) 깔았는데 docker container안에 또 docker를 깔게 되었다. 🤪 잘 되려나? 안 되어도 잘 되어도 글로 남겨둬야지. 일단 까는 건 무사히 성공.</p>
+  <p>&lt;5/26일 추가&gt; 오메 신기한겨… IBM Cloud에서 제공해주는 <code class="language-plaintext highlighter-rouge">웹사이트에서 코로나19(COVID-19) 위기 대응 커뮤니케이션 챗봇 통합하기</code> 튜토리얼을 한번 해보려고 했고, 또 로컬에 깔기 싫어서 ubuntu docker 이미지 사용했다. ubuntu 컨테이너에다가 curl 깔고 IBM Cloud CLI 깔아야 된다 그러길래(튜토리얼 무한 신뢰) 깔았는데 docker container안에 또 docker를 깔게 되었다. 🤪 잘 되려나? 안 되어도 잘 되어도 글로 남겨둬야지. 일단 까는 건 무사히 성공.</p>
 </blockquote>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@3141372216ff:/# curl <span class="nt">-sL</span> https://ibm.biz/idt-installer | bash
@@ -658,7 +658,65 @@ main: line 346: ibmcloud: <span class="nb">command </span>not found
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C/ibm-clouders-notetaking/" rel="permalink">IBM Cloud Essentials Badge 획득하기
+        <a href="/machinelearning/ml-researchpaper-2/" rel="permalink">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">무시무시한 ML 논문 읽기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machinelearning/ml-researchpaper-1/" rel="permalink">Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  8 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">무시무시한 ML 논문 읽기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ibm_clouders/ibm-cloud-review/" rel="permalink">☁IBM Clouders 활동 후기(20/7 - 20/9)
 </a>
       
     </h2>
@@ -672,7 +730,7 @@ main: line 346: ibmcloud: <span class="nb">command </span>not found
 
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">IBM CLOUD essentials 무료강의 듣고 badge 따자!
+    <p class="archive__item-excerpt" itemprop="description">IBM Clouders 활동을 돌아보며…
 </p>
   </article>
 </div>
@@ -687,7 +745,7 @@ main: line 346: ibmcloud: <span class="nb">command </span>not found
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/%EC%9B%B9,%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/webrtc+tensorflow/" rel="permalink">WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 1탄
+        <a href="/deeplearning/deeplearning-cnn-1/" rel="permalink">🐈 Deep learning - CNN (1)
 </a>
       
     </h2>
@@ -697,69 +755,11 @@ main: line 346: ibmcloud: <span class="nb">command </span>not found
 
 
 
-  2 minute read
+  3 minute read
 
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">webrtc 와 tensorflow js 모델로 object detection해보기
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/recommend%20system/matrix-factorization/" rel="permalink">추천 시스템 - Matrix Factorization 기초 원리와 구현 방법
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  2 minute read
-
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Python을 이용한 matrix factorization 구현
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/network/web-operation/" rel="permalink">주소 창에 www.naver.com 치면 일어나는 일들
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  2 minute read
-
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">WEB 동작 원리
+    <p class="archive__item-excerpt" itemprop="description">딥러닝 CNN 기초 개념 뽀개기
 </p>
   </article>
 </div>
@@ -798,7 +798,7 @@ main: line 346: ibmcloud: <span class="nb">command </span>not found
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 JJIONI. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2021 JJIONI. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

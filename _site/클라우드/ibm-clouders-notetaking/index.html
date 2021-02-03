@@ -167,7 +167,7 @@
       
 
       
-        <img src="/assets/images/emoji-xx.png" alt="JJIONI" itemprop="image">
+        <img src="/assets/images/jjioni_logo.png" alt="JJIONI" itemprop="image">
       
     </div>
   
@@ -289,7 +289,7 @@
 
 
 
-  1 minute read
+  3 minute read
 
 </p>
           
@@ -328,13 +328,17 @@
 
 <p><img src="/assets/images/image-20200809084416216.png" alt="image-20200809084416216" style="zoom:50%;" /></p>
 
+<hr />
+
 <h1 id="cloud-native">Cloud Native</h1>
 
 <p><img src="https://d1fto35gcfffzn.cloudfront.net/images/topics/cloudnative/diagram-cloud-native.png" alt="Cloud-Native" style="zoom:33%;" /></p>
 
 <p>Microservice, Container를 Cloud native application으로 개발</p>
 
-<h1 id="infrastructure-services">Infrastructure Services</h1>
+<hr />
+
+<h1 id="infrastructure-as-a-service">Infrastructure as a Service</h1>
 
 <ul>
   <li>Bare Metal Server ?
@@ -363,6 +367,58 @@
   <li>Data sovereignty compliance - Geo-Fencing for workloads,  Data doeson’t cross borders</li>
   <li>Compliance and regulatory control</li>
 </ul>
+
+<hr />
+
+<h1 id="platform-as-a-service">Platform as a Service</h1>
+
+<p>There’s a lot of technologies for doing cloud-native transformation.</p>
+
+<p>Let’s see from the bottom with bare-bones physical infrasturcture.</p>
+
+<p>legacy applications &gt; VMs &gt; Kubernates &gt; <strong>Cloud Foundry</strong> &gt; Serverless</p>
+
+<h2 id="cloud-foundry">Cloud Foundry</h2>
+
+<p>very developer focused approach. increased speed &amp; ease. For example, what developer would do with cloud foundry is like this. Let’s say you developed front application with react. You can deploy app with CLI tool CF(cloud foundry). Cloud Foundry takes your app and runs your app with the environment of cloud. You don’t need to care about security, infrastructure. Then if you are to change your backend application into container, you can use CLI tool <strong>kubectl</strong> to deploy to cloud. Backend container &amp; front app are running in the same environnment.</p>
+
+<p><img src="/assets/images/image-20200809224240804.png" alt="image-20200809224240804" /></p>
+
+<h2 id="container-orchestration">Container Orchestration</h2>
+
+<blockquote>
+  <p>Before starting, Let’s look at quick explanation of “Container”. A container is a unit of software that contains all the components required to run and application, including all its dependencies, libraries, other binaries and so on.</p>
+</blockquote>
+
+<p>Let’s look at what container orchestration platform like k8s does. It uses “Worker node” just like vm, computer.</p>
+
+<ol>
+  <li>Deploy</li>
+  <li>Scaling</li>
+  <li>Network (ex. with scaling, platform should do load-balancing and connect other microservices)</li>
+  <li>Insight (logging, anaylitics, …)</li>
+</ol>
+
+<h2 id="red-hat-openshift">Red Hat OpenShift</h2>
+
+<p>OpenShift is a platform as a service offering from Red Hat, built on Kubernates technology. OpenShift simplifies the use of Kubernetes by taking away many of the decisions that normally need to be made when using Kubernetes. As an example, a developer, can concentrate on creating application code and let OpenShift create all the Kubernetes configuration by using the Source to Image workflow, which takes your code from a git repository, builds the container then deploys it to OpenShift autogenerating all the deployment configuration needed.</p>
+
+<p>When application or project was created, OpenShift in the backend will create a Jenkins job and pipeline. So all developers need to do is push their code changes to repository(ex. Github).</p>
+
+<ol>
+  <li>Developer push changes to repository</li>
+  <li>Webhook is triggered, then kicks off a Jenkins job.</li>
+  <li>Jenkins job will create “Sourced image”, which means creating a Docker image out of that source code.</li>
+  <li>Take this and put it into a private restiry.</li>
+  <li>OpenShift will push this into a cluster.</li>
+  <li>Bring down the old version, and start the new version.</li>
+</ol>
+
+<h2 id="knatvie">KNatvie</h2>
+
+<p>It is the platform that on top of kubernetes, supports function serverless. We have three components on top of kubernetes, BUILD &amp; SERVE &amp; EVENT. With Knative, we can make all build process into one kubernetes cluster.</p>
+
+<hr />
 
 <h1 id="reference">Reference</h1>
 
@@ -442,7 +498,8 @@
 ">Previous</a>
     
     
-      <a href="#" class="pagination--pager disabled">Next</a>
+      <a href="/%EC%9B%B9,%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/webrtc+tensorflow2/" class="pagination--pager" title="WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 2탄
+">Next</a>
     
   </nav>
 
@@ -466,7 +523,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/%EC%9B%B9,%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/webrtc+tensorflow/" rel="permalink">WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 1탄
+        <a href="/machinelearning/ml-researchpaper-2/" rel="permalink">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
 </a>
       
     </h2>
@@ -476,11 +533,11 @@
 
 
 
-  2 minute read
+  5 minute read
 
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">webrtc 와 tensorflow js 모델로 object detection해보기
+    <p class="archive__item-excerpt" itemprop="description">무시무시한 ML 논문 읽기
 </p>
   </article>
 </div>
@@ -495,7 +552,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/recommend%20system/matrix-factorization/" rel="permalink">추천 시스템 - Matrix Factorization 기초 원리와 구현 방법
+        <a href="/machinelearning/ml-researchpaper-1/" rel="permalink">Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations
 </a>
       
     </h2>
@@ -505,11 +562,11 @@
 
 
 
-  2 minute read
+  8 minute read
 
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">Python을 이용한 matrix factorization 구현
+    <p class="archive__item-excerpt" itemprop="description">무시무시한 ML 논문 읽기
 </p>
   </article>
 </div>
@@ -524,7 +581,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/network/web-operation/" rel="permalink">주소 창에 www.naver.com 치면 일어나는 일들
+        <a href="/ibm_clouders/ibm-cloud-review/" rel="permalink">☁IBM Clouders 활동 후기(20/7 - 20/9)
 </a>
       
     </h2>
@@ -534,11 +591,11 @@
 
 
 
-  2 minute read
+  1 minute read
 
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">WEB 동작 원리
+    <p class="archive__item-excerpt" itemprop="description">IBM Clouders 활동을 돌아보며…
 </p>
   </article>
 </div>
@@ -553,7 +610,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/docker/docker-basics-first/" rel="permalink">docker 좋은데 ?! - 1
+        <a href="/deeplearning/deeplearning-cnn-1/" rel="permalink">🐈 Deep learning - CNN (1)
 </a>
       
     </h2>
@@ -563,11 +620,11 @@
 
 
 
-  6 minute read
+  3 minute read
 
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">~ 아무것도 모르고 이미지 만들어보기 ~
+    <p class="archive__item-excerpt" itemprop="description">딥러닝 CNN 기초 개념 뽀개기
 </p>
   </article>
 </div>
@@ -606,7 +663,7 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 JJIONI. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2021 JJIONI. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

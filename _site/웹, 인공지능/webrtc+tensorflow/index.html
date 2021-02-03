@@ -167,7 +167,7 @@
       
 
       
-        <img src="/assets/images/emoji-xx.png" alt="JJIONI" itemprop="image">
+        <img src="/assets/images/jjioni_logo.png" alt="JJIONI" itemprop="image">
       
     </div>
   
@@ -307,7 +307,7 @@
 <h1 id="-table-of-contents">📌 Table of Contents</h1>
 
 <ul>
-  <li><a href="#🚦webrtc가-뭐냐">WebRTC가 뭐냐?</a>
+  <li><a href="#webrtc가-뭐냐">WebRTC가 뭐냐?</a>
     <ul>
       <li><a href="#webrtc-동작방식">webrtc 동작방식</a></li>
     </ul>
@@ -317,11 +317,10 @@
       <li><a href="#N:N영상통화">N:N영상통화</a></li>
     </ul>
   </li>
-  <li><a href="#tensorflow-js모델을-심자">Tensorflow js모델을 심자</a></li>
   <li><a href="#reference">reference</a></li>
 </ul>
 
-<h1 id="-webrtc가-뭐냐">🚦 webRTC가 뭐냐?</h1>
+<h1 id="webrtc가-뭐냐">webRTC가 뭐냐?</h1>
 
 <p>WebRTC는 web application간에 실시간 통신 기능을 제공하는 기술. 특히 마이크나 스피커, 영상같은 데이터를 실시간으로 peer connection으로 별도 서버 없이 가능하게 해준다.  (심지어 screen sharing도 가능하다고 함 ) 그럼 간단한 동작 방식을 살펴보자!</p>
 
@@ -343,13 +342,13 @@
 
 <p>결국 시그널링을 통해 정보를 주고 받고 P2P connection을 맺는다. 그리고 그 후부턴 각 peer 로 각자의 media, data를 전송하면 된다. 👏🏻</p>
 
-<h1 id="-webrtc-구현하기">🎓 webRTC 구현하기</h1>
+<h1 id="webrtc-구현하기">webRTC 구현하기</h1>
 
 <p>프로젝트에서 사용한 기본적인 뼈대 코드를 webRTC 엄청 고수로 추정되는 유투버가 제공하는 tutorial 로 구현한 부분을 공유해본다. simple peer를 이용하여 아주 간단한 예제를 학습해봤다.</p>
 
 <p>코드 전문은 여기서 확인 가능하다. 😎 (여기서 signaling server는 server.js)</p>
 
-<p>https://github.com/chloejiwon/coronabusters/tree/webrtc_basic_tutorial</p>
+<p><a href="https://github.com/chloejiwon/coronabusters/tree/webrtc_basic_tutorial">https://github.com/chloejiwon/coronabusters/tree/webrtc_basic_tutorial</a></p>
 
 <h2 id="nn-영상통화">N:N 영상통화</h2>
 
@@ -367,32 +366,32 @@
 
 <p>root 폴더에서 아래 명렁어로 signaling server를 띄우고, (8000 포트 아무도 쓰지 않아야 함, 아님 설정을 바꿔주든지..?)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$node server.js
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$node server.js
 </code></pre></div></div>
 
 <p>client/ 폴더에서는 view를 위해 아래 command 입력한다. (이건 3000번 포트 사용한다)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$npm run-script start
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$npm run-script start
 </code></pre></div></div>
 
 <p>혹시 무슨 tensorflow coco-ssd 못 불러온다는 에러가 뜨면 아래 명령어 입력한다.</p>
 
 <p>왜 package.json에 있는데 install 따로 해줘야할까..? 😞</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install @tensorflow-models/coco-ssd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install @tensorflow-models/coco-ssd
 $ npm install @tensorflow/tfjs
 </code></pre></div></div>
 
-<p>하여튼 이렇게 하면 <code class="highlighter-rouge">http://location:3000</code>에 접속하면 create room화면이 뜨고, 누르면 자기 얼굴이 턱 등장.</p>
+<p>하여튼 이렇게 하면 <code class="language-plaintext highlighter-rouge">http://location:3000</code>에 접속하면 create room화면이 뜨고, 누르면 자기 얼굴이 턱 등장.</p>
 
 <p>이제 나는 자기 비디오에 Tensorflow js 모델을 통해 object detection을 하고자 하는데 이거는 다음 편에 이어서 마무리하도록 하겠다. 🤟🏼</p>
 
-<h1 id="-reference">🎉 reference</h1>
+<h1 id="reference">reference</h1>
 
 <ul>
-  <li>http://jaynewho.com/post/36</li>
-  <li>http://webrtc.org</li>
-  <li>https://www.youtube.com/watch?v=R1sfHPwEH7A</li>
+  <li><a href="http://jaynewho.com/post/36">http://jaynewho.com/post/36</a></li>
+  <li><a href="http://webrtc.org">http://webrtc.org</a></li>
+  <li><a href="https://www.youtube.com/watch?v=R1sfHPwEH7A">https://www.youtube.com/watch?v=R1sfHPwEH7A</a></li>
 </ul>
 
 
@@ -508,7 +507,65 @@ $ npm install @tensorflow/tfjs
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C/ibm-clouders-notetaking/" rel="permalink">IBM Cloud Essentials Badge 획득하기
+        <a href="/machinelearning/ml-researchpaper-2/" rel="permalink">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">무시무시한 ML 논문 읽기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machinelearning/ml-researchpaper-1/" rel="permalink">Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  8 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">무시무시한 ML 논문 읽기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ibm_clouders/ibm-cloud-review/" rel="permalink">☁IBM Clouders 활동 후기(20/7 - 20/9)
 </a>
       
     </h2>
@@ -522,7 +579,7 @@ $ npm install @tensorflow/tfjs
 
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">IBM CLOUD essentials 무료강의 듣고 badge 따자!
+    <p class="archive__item-excerpt" itemprop="description">IBM Clouders 활동을 돌아보며…
 </p>
   </article>
 </div>
@@ -537,7 +594,7 @@ $ npm install @tensorflow/tfjs
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/recommend%20system/matrix-factorization/" rel="permalink">추천 시스템 - Matrix Factorization 기초 원리와 구현 방법
+        <a href="/deeplearning/deeplearning-cnn-1/" rel="permalink">🐈 Deep learning - CNN (1)
 </a>
       
     </h2>
@@ -547,69 +604,11 @@ $ npm install @tensorflow/tfjs
 
 
 
-  2 minute read
+  3 minute read
 
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">Python을 이용한 matrix factorization 구현
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/network/web-operation/" rel="permalink">주소 창에 www.naver.com 치면 일어나는 일들
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  2 minute read
-
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">WEB 동작 원리
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/docker/docker-basics-first/" rel="permalink">docker 좋은데 ?! - 1
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  6 minute read
-
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">~ 아무것도 모르고 이미지 만들어보기 ~
+    <p class="archive__item-excerpt" itemprop="description">딥러닝 CNN 기초 개념 뽀개기
 </p>
   </article>
 </div>
@@ -648,7 +647,7 @@ $ npm install @tensorflow/tfjs
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 JJIONI. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2021 JJIONI. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
