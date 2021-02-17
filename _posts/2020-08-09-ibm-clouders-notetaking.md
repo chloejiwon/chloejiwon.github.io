@@ -91,7 +91,7 @@ legacy applications > VMs > Kubernates > **Cloud Foundry** > Serverless
 
 very developer focused approach. increased speed & ease. For example, what developer would do with cloud foundry is like this. Let's say you developed front application with react. You can deploy app with CLI tool CF(cloud foundry). Cloud Foundry takes your app and runs your app with the environment of cloud. You don't need to care about security, infrastructure. Then if you are to change your backend application into container, you can use CLI tool **kubectl** to deploy to cloud. Backend container & front app are running in the same environnment. 
 
-![image-20200809224240804](/assets/images/image-20200809224240804.png)
+<img src="/assets/images/image-20200809224240804.png" alt="image-20200809224240804" style="zoom:30%;" />
 
 
 
@@ -142,4 +142,3 @@ ___
 # Reference
 
 * https://tanzu.vmware.com/kr/cloud-native
-* 

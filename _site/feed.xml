@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-17T22:19:09+09:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations</title><link href="http://localhost:4000/machinelearning/2021/01/27/ml-researchpaper-1.html" rel="alternate" type="text/html" title="Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations" /><published>2021-01-27T00:00:00+09:00</published><updated>2021-01-28T07:42:00+09:00</updated><id>http://localhost:4000/machinelearning/2021/01/27/ml-researchpaper-1</id><content type="html" xml:base="http://localhost:4000/machinelearning/2021/01/27/ml-researchpaper-1.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-17T22:54:14+09:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations</title><link href="http://localhost:4000/machinelearning/2021/01/27/ml-researchpaper-1.html" rel="alternate" type="text/html" title="Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations" /><published>2021-01-27T00:00:00+09:00</published><updated>2021-01-28T07:42:00+09:00</updated><id>http://localhost:4000/machinelearning/2021/01/27/ml-researchpaper-1</id><content type="html" xml:base="http://localhost:4000/machinelearning/2021/01/27/ml-researchpaper-1.html">&lt;blockquote&gt;
   &lt;p&gt;2019년 Top 10 논문에 뽑힌 Common Assumptions in the unsupervised learning of disentangled representations 논문을 살펴보자. 이번 논문은 제목 그대로 Common Assumption에 대해 도전하는 논문이다. 그래서 이걸 이해하려면 애초에 그럼 내가 Common Assumption이 있을 정도로 배경 지식이 있어야 했기 때문에(…) 배경 지식을 (논문을 이해할 만큼만) 간단히 정리해보았다. 여기서 🥝 로 중간 중간  내 의견, 참견들을 적어두었다. 시끄러우면 살포시 무시해주세요.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -12,7 +12,7 @@
 
 &lt;p&gt;주어진 데이터를 다른 차원에 &lt;strong&gt;표현&lt;/strong&gt; 한다는 뜻으로 받아들이면 된다. 그리고 &lt;code class=&quot;highlighter-rouge&quot;&gt;learning&lt;/code&gt;이니까 그 표현하는 방법을 학습하는 것이다. 주어진 데이터를 다른 데이터 포인트로 mapping하는 모델을 학습한다고 보면 되겠다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-1.png&quot; alt=&quot;ML도표&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-1.png&quot; alt=&quot;ML도표&quot; style=&quot;zoom:40%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;disentanglement&quot;&gt;Disentanglement&lt;/h3&gt;
 
@@ -24,7 +24,7 @@
 
 &lt;p&gt;다른 representation vector까지 바꿔버리면, z가 entagled되어 있다는 걸 의미한다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-2.png&quot; alt=&quot;disentanglement&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-2.png&quot; alt=&quot;disentanglement&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;disentagled-representation&quot;&gt;Disentagled Representation&lt;/h3&gt;
 
@@ -40,13 +40,13 @@
 
 &lt;p&gt;for (Nonlinear) Dimensionality Reduction, Feature extraction, Representation learning&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-3.png&quot; alt=&quot;autoencoder&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-3.png&quot; alt=&quot;autoencoder&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;vae-variational-auto-encoder&quot;&gt;VAE (variational auto encoder)&lt;/h3&gt;
 
 &lt;p&gt;생성모델을 다루는 기술 중 하나. GAN과 같이 각광받고 있음.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-4.png&quot; alt=&quot;vae&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-4.png&quot; alt=&quot;vae&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;downstream-task&quot;&gt;downstream task&lt;/h3&gt;
 
@@ -147,7 +147,7 @@
 
 &lt;p&gt;⇒ 답은 No이고 아래 theorem을 이용할 것이다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-5.png&quot; alt=&quot;Theorem&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-5.png&quot; alt=&quot;Theorem&quot; style=&quot;zoom:70%;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;
@@ -196,7 +196,7 @@
 
 &lt;p&gt;⇒ 아! 그게 아니라, regularzation strength는 hyper parameter 이니까 hyperparam choice에 따라 correlation score가 달라진다고 보는게 맞다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-6.png&quot; alt=&quot;실험결과1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-6.png&quot; alt=&quot;실험결과1&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Implications&lt;/strong&gt;&lt;/li&gt;
@@ -214,7 +214,7 @@
 
 &lt;p&gt;🥝 : 그니까 correlate되어 있다는 거는, 대충 metric score가 통일된 결과를 보여주고 있다는 거겠지? Modularity같은 애 빼놓곤 disentanglement 가 확실히 정의되어 있지 않는데도 불구하고 (= 그러니까 당연히 그걸 측정할 metric도 확실하게 있는게 아닌데) 대부분 비슷한 결과를 보이더라.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-7.png&quot; alt=&quot;실험결과2&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-7.png&quot; alt=&quot;실험결과2&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Implications&lt;/strong&gt;&lt;/li&gt;
@@ -226,7 +226,7 @@
 
 &lt;p&gt;우리가 실험한 이런 method들을 사용하는 이유는 Disentanglement를 잘하기 위해 하는 거니까, disentanglement 성능이 model choice, hyperparameter selection, randomness(=random seed)에 얼마나 영향을 많이 받나를 실험해봤다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-8.png&quot; alt=&quot;실험결과3&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-8.png&quot; alt=&quot;실험결과3&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;왼쪽 표를 보면, Model에 따른(hyperparameter, 여기선 regularization strength)을 달리해서 실험한) score 표인데, 같은 모델이어도 엄청 분포가 0.95 상위부터 0.60정도의 하위까지 걸쳐져 있는 것을 볼 수 있음. variance가 크다! hyperparmeter에 엄청 영향을 많이 받는 다는 걸 알 수 있다.&lt;/p&gt;
 
@@ -258,7 +258,7 @@
 
 &lt;p&gt;다른 방식으로 접근해보자. Hyperparmeter를 unsupervised score(ex, reconstruction error, KL divergence between the prior and the approximate posterior, 등등) 를 보고 고르는 것이다. 그러려면 최종 목표는 disentanglement score를 높이는 것이니 disentanglement metric이랑 unsupervised score랑 correlate하고 있음 unsupervised score기반으로 결정을 내려도 되곘지? 하지만 표를 보면, correlation이 거의 없어서 unsupervised score를 쓰기에 적절치 않다는 결론을 내렸다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-10.png&quot; alt=&quot;ML도표&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ml-research-10.png&quot; alt=&quot;ML도표&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Hyperparameter selection based on transfer&lt;/strong&gt;&lt;/li&gt;
@@ -318,7 +318,7 @@
 
 &lt;h1 id=&quot;reference&quot;&gt;reference&lt;/h1&gt;
 
-&lt;p&gt;[배경 지식]에서 사용된 이미지를 제외한 모든 이미지는https://arxiv.org/pdf/1811.12359.pdf 에서 가져왔다.&lt;/p&gt;
+&lt;p&gt;[배경 지식]에서 사용된 이미지를 제외한 모든 이미지는 &lt;a href=&quot;https://arxiv.org/pdf/1811.12359.pdf&quot;&gt;Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations 논문&lt;/a&gt;  에서 가져왔다.&lt;/p&gt;
 
 &lt;p&gt;[배경 지식]의 첫번째 이미지(도표)를 제외하고 내가 그린 그림이다.&lt;/p&gt;</content><author><name></name></author><category term="MachineLearning" /><category term="머신러닝, 논문" /><summary type="html">무시무시한 ML 논문 읽기</summary></entry><entry><title type="html">☁IBM Clouders 활동 후기(20/7 - 20/9)</title><link href="http://localhost:4000/ibm_clouders/2020/09/22/ibm-cloud-review.html" rel="alternate" type="text/html" title="☁IBM Clouders 활동 후기(20/7 - 20/9)" /><published>2020-09-22T00:00:00+09:00</published><updated>2020-09-22T15:11:00+09:00</updated><id>http://localhost:4000/ibm_clouders/2020/09/22/ibm-cloud-review</id><content type="html" xml:base="http://localhost:4000/ibm_clouders/2020/09/22/ibm-cloud-review.html">&lt;blockquote&gt;
   &lt;p&gt;IBM Clouder로 불성실하게 살아온지(?) 7~9월 어느덧 3개월 정도가 되었습니다. 🤧 그동안의 미션과 활동에 대해 되돌아 보며 주로 반성하는 시간을 갖도록 하겠습니다.&lt;/p&gt;
@@ -380,7 +380,7 @@
 
 &lt;p&gt;처음에 배웠던 구조는 Fully Connected Neural Net 구조였다. 모든 뉴런이 인접하는 계층의 모든 뉴런과 결합되어 있었다. (책에서는 완전히 연결된 계층을 Affine 계층이라 부른다) 그래서 그 전에서 배운 구조는 Affine 계층 + 활성화 함수 계층이 짝을 이뤄 레고 블록처럼 쌓이는 구조다. 그럼 CNN은 어떻게 다른가? Convolution Layer와 Pooling Layer가 우리가 알고 있는 구조에 새롭게 등장한다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/cnn-1-1.png&quot; alt=&quot;cnn-1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/cnn-1-1.png&quot; alt=&quot;cnn-1&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;그래서 한 계층은 Conv - Relu - (Pooling)의 흐름으로 연결된다.&lt;/p&gt;
 
@@ -392,7 +392,7 @@
 
 &lt;p&gt;그러면 이 특성을 살리는 딥 러닝 구조를 만들 수 있을까? 이때 등장하는 것이 Convolution Layer. 합성곱(Convolution)이 뭐하냐면, 이런 걸 하는 거다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/cnn-1-2.png&quot; alt=&quot;cnn-2&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/cnn-1-2.png&quot; alt=&quot;cnn-2&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;맨 왼쪽에 있는 입력 데이터에 필터를 적용해서 출력 Feature map을 만들어 낸다. 데이터의 특성 측면에서 살펴보면 입력 데이터도 세로&lt;em&gt;가로 방향의 형상, 필터 역시 세로&lt;/em&gt;가로, 그리고 출력 데이터 또한 가로*세로의 형상을 가진다. 뭔가 공간적 정보가 유지되는 느낌이 들지 않는 가? 🌀(최면 걸기)&lt;/p&gt;
 
@@ -783,13 +783,13 @@
 
 &lt;p&gt;로컬 컴퓨터에서 테스트하면 아래처럼 동작한다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200917233853509.png&quot; alt=&quot;image-20200917233853509&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200917233853509.png&quot; alt=&quot;image-20200917233853509&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Room Number를 써서 화상 채팅방 만들면 된다. 나는 1을 넣어보겠다.&lt;/p&gt;
 
 &lt;p&gt;숫자 넣고 Go하면 내 화면이 뜬다.  짜잔! 방을 만든 썬구리 얼굴이 뜬다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918004209456.png&quot; alt=&quot;image-20200918004209456&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918004209456.png&quot; alt=&quot;image-20200918004209456&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;그리고 내가 여기서 다시 localhost:3000을 들어가서 내가 입력했던 채팅방 room number 1로 들어가면, 이제 화상 채팅이 가능해진다.&lt;/p&gt;
 
@@ -797,7 +797,7 @@
 
 &lt;p&gt;썬구리와 윙키가 이제 화상채팅에 성공한 것.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200917234747302.png&quot; alt=&quot;image-20200917234747302&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200917234747302.png&quot; alt=&quot;image-20200917234747302&quot; style=&quot;zoom:40%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;사실은 이게 중요한게 아니라 오늘의 글은 이 간단한 프로그램을 IBM Cloud Foundry를 사용하여 손쉽게 배포해보도록 하는 것이다.&lt;/p&gt;
 
@@ -815,13 +815,13 @@
   &lt;li&gt;리소스 작성 &amp;gt; Cloud Foundry 앱 &amp;gt; Node js 선택&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200917235511936.png&quot; alt=&quot;image-20200917235511936&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200917235511936.png&quot; alt=&quot;image-20200917235511936&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;이름 대충 정해서 만들면, 실행 중으로 변하면서 뭔가 시작하는 느낌이 든다. 내 대시보드에 가도 내가 만든 앱이 실행 중인 걸 알 수 있다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200917235955171.png&quot; alt=&quot;image-20200917235955171&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200917235955171.png&quot; alt=&quot;image-20200917235955171&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Cloud Foundry 앱을 사용하기 위해서는 앱의 root 경로에 manifest.yml파일을 만들어 설정해줘야 한다. 아래처럼 하면 되겠다.&lt;/li&gt;
@@ -856,21 +856,21 @@ applications:
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ibmcloud login
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918001207345.png&quot; alt=&quot;image-20200918001207345&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918001207345.png&quot; alt=&quot;image-20200918001207345&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;ibmcloud target –cf로 해당 directory와 클라우드를 연결하고, ibmcloud cf push로 리소스를 클라우드에 입력시킨다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918001455261.png&quot; alt=&quot;image-20200918001455261&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918001455261.png&quot; alt=&quot;image-20200918001455261&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;😅 &lt;code class=&quot;highlighter-rouge&quot;&gt;ibmcloud cf push&lt;/code&gt;는 생각보다 오래걸리므로 좀 기다립시다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918002320370.png&quot; alt=&quot;image-20200918002320370&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918002320370.png&quot; alt=&quot;image-20200918002320370&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918002222784.png&quot; alt=&quot;image-20200918002222784&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918002222784.png&quot; alt=&quot;image-20200918002222784&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;아.. 이런.. package.json에 오류가 있어서 실패했네. 로컬에 그래도 한번 돌려보고 push해야하는데.. 😤 어쨌든 오류 수정하고, 다시 ibmcloud cf push하면 된다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918002756205.png&quot; alt=&quot;image-20200918002756205&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918002756205.png&quot; alt=&quot;image-20200918002756205&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;오우 성공! 이제 그럼 ibm cloud 대시보드를 확인해볼까?&lt;/p&gt;
 
@@ -880,25 +880,25 @@ applications:
 
 &lt;p&gt;다시 내 리소스를 들어가서 앱URL방문을 클릭해본다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918002900132.png&quot; alt=&quot;image-20200918002900132&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918002900132.png&quot; alt=&quot;image-20200918002900132&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;로컬 컴퓨터에서 돌렸던 것과 똑같이 뜬다! 성공!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918003026418.png&quot; alt=&quot;image-20200918003026418&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918003026418.png&quot; alt=&quot;image-20200918003026418&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;화상 채팅까지 성공하는 지 확인해봅시다.&lt;/p&gt;
 
 &lt;p&gt;1번 방을 만들고, 입장&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918003110003.png&quot; alt=&quot;image-20200918003110003&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918003110003.png&quot; alt=&quot;image-20200918003110003&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;다시 썬구리가 등장한 것을 볼 수 있다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918003302577.png&quot; alt=&quot;image-20200918003302577&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918003302577.png&quot; alt=&quot;image-20200918003302577&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;그럼 다시 1번방을 들어가서 화상 채팅 기능을 테스트해보자.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918003516244.png&quot; alt=&quot;image-20200918003516244&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200918003516244.png&quot; alt=&quot;image-20200918003516244&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;로컬에서 테스트했을 때와 동일하게 동작하는 것을 확인할 수 있다.&lt;/p&gt;
 
@@ -1133,7 +1133,7 @@ applications:
 
 &lt;p&gt;very developer focused approach. increased speed &amp;amp; ease. For example, what developer would do with cloud foundry is like this. Let’s say you developed front application with react. You can deploy app with CLI tool CF(cloud foundry). Cloud Foundry takes your app and runs your app with the environment of cloud. You don’t need to care about security, infrastructure. Then if you are to change your backend application into container, you can use CLI tool &lt;strong&gt;kubectl&lt;/strong&gt; to deploy to cloud. Backend container &amp;amp; front app are running in the same environnment.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200809224240804.png&quot; alt=&quot;image-20200809224240804&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20200809224240804.png&quot; alt=&quot;image-20200809224240804&quot; style=&quot;zoom:30%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;container-orchestration&quot;&gt;Container Orchestration&lt;/h2&gt;
 
@@ -1175,7 +1175,6 @@ applications:
 
 &lt;ul&gt;
   &lt;li&gt;https://tanzu.vmware.com/kr/cloud-native&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="클라우드" /><category term="cloud" /><summary type="html">IBM CLOUD essentials 무료강의 듣고 badge 따자!</summary></entry><entry><title type="html">WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 1탄</title><link href="http://localhost:4000/%EC%9B%B9,%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/2020/07/29/webrtc+tensorflow.html" rel="alternate" type="text/html" title="WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 1탄" /><published>2020-07-29T00:00:00+09:00</published><updated>2020-07-26T15:11:00+09:00</updated><id>http://localhost:4000/%EC%9B%B9,%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/2020/07/29/webrtc+tensorflow</id><content type="html" xml:base="http://localhost:4000/%EC%9B%B9,%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/2020/07/29/webrtc+tensorflow.html">&lt;blockquote&gt;
   &lt;p&gt;프로젝트 진행하면서 처음 접한 webrtc.. 실시간으로 영상 채팅하며tensorflow js 모델과 함께 객체 인식을 하는 기능을 구현해보는데… 👀&lt;/p&gt;
 

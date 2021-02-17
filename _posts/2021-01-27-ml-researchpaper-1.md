@@ -22,7 +22,7 @@ representation은 어떤 데이터 포인트를 다른 차원의 데이터 포�
 
 주어진 데이터를 다른 차원에 **표현** 한다는 뜻으로 받아들이면 된다. 그리고 `learning`이니까 그 표현하는 방법을 학습하는 것이다. 주어진 데이터를 다른 데이터 포인트로 mapping하는 모델을 학습한다고 보면 되겠다.
 
-![ML도표](/assets/images/ml-research-1.png)
+<img src="/assets/images/ml-research-1.png" alt="ML도표" style="zoom:40%;" />
 
 ### Disentanglement
 
@@ -34,7 +34,7 @@ Transforming from an uninterpretable space with entagled features to eigen space
 
 다른 representation vector까지 바꿔버리면, z가 entagled되어 있다는 걸 의미한다.
 
-![disentanglement](/assets/images/ml-research-2.png)
+<img src="/assets/images/ml-research-2.png" alt="disentanglement" style="zoom:50%;" />
 
 ### Disentagled Representation
 
@@ -50,13 +50,13 @@ that describes original data
 
 for (Nonlinear) Dimensionality Reduction, Feature extraction, Representation learning
 
-![autoencoder](/assets/images/ml-research-3.png)
+<img src="/assets/images/ml-research-3.png" alt="autoencoder" style="zoom:50%;" />
 
 ### VAE (variational auto encoder)
 
 생성모델을 다루는 기술 중 하나. GAN과 같이 각광받고 있음.
 
-![vae](/assets/images/ml-research-4.png)
+<img src="/assets/images/ml-research-4.png" alt="vae" style="zoom:50%;" />
 
 ### downstream task
 
@@ -127,7 +127,7 @@ In representation learning, real-world observations x는 이렇게 2-step으로 
 
 ⇒ 답은 No이고 아래 theorem을 이용할 것이다.
 
-![Theorem](/assets/images/ml-research-5.png)
+<img src="/assets/images/ml-research-5.png" alt="Theorem" style="zoom:70%;" />
 
 (증명) P(x|z) 가 generative model이라고 하자. 그리고 z에 대해 완벽하게 disentagled된 representation r(x)를 찾아냈다고 가정하자.
 
@@ -169,7 +169,7 @@ mean vector로 학습 진행했을 때와, 그 분포에서 sample을 얻어 진
 
 ⇒ 아! 그게 아니라, regularzation strength는 hyper parameter 이니까 hyperparam choice에 따라 correlation score가 달라진다고 보는게 맞다.
 
-![실험결과1](/assets/images/ml-research-6.png)
+<img src="/assets/images/ml-research-6.png" alt="실험결과1" style="zoom:67%;" />
 
 - **Implications**
 
@@ -185,7 +185,7 @@ Modularity정도 빼놓고는 metric들이 서로 엄청 correlate되어 있음�
 
 🥝 : 그니까 correlate되어 있다는 거는, 대충 metric score가 통일된 결과를 보여주고 있다는 거겠지? Modularity같은 애 빼놓곤 disentanglement 가 확실히 정의되어 있지 않는데도 불구하고 (= 그러니까 당연히 그걸 측정할 metric도 확실하게 있는게 아닌데) 대부분 비슷한 결과를 보이더라.
 
-![실험결과2](/assets/images/ml-research-7.png)
+<img src="/assets/images/ml-research-7.png" alt="실험결과2" style="zoom:67%;" />
 
 - **Implications**
 
@@ -195,7 +195,7 @@ Modularity를 제외한 모든 disentaglement metrics가 dataset에 따라 정�
 
 우리가 실험한 이런 method들을 사용하는 이유는 Disentanglement를 잘하기 위해 하는 거니까, disentanglement 성능이 model choice, hyperparameter selection, randomness(=random seed)에 얼마나 영향을 많이 받나를 실험해봤다.
 
-![실험결과3](/assets/images/ml-research-8.png)
+<img src="/assets/images/ml-research-8.png" alt="실험결과3" style="zoom:67%;" />
 
 왼쪽 표를 보면, Model에 따른(hyperparameter, 여기선 regularization strength)을 달리해서 실험한) score 표인데, 같은 모델이어도 엄청 분포가 0.95 상위부터 0.60정도의 하위까지 걸쳐져 있는 것을 볼 수 있음. variance가 크다! hyperparmeter에 엄청 영향을 많이 받는 다는 걸 알 수 있다.
 
@@ -221,7 +221,7 @@ unsupervised learning의 disentanglement score은 randomness(in the form of rand
 
 다른 방식으로 접근해보자. Hyperparmeter를 unsupervised score(ex, reconstruction error, KL divergence between the prior and the approximate posterior, 등등) 를 보고 고르는 것이다. 그러려면 최종 목표는 disentanglement score를 높이는 것이니 disentanglement metric이랑 unsupervised score랑 correlate하고 있음 unsupervised score기반으로 결정을 내려도 되곘지? 하지만 표를 보면, correlation이 거의 없어서 unsupervised score를 쓰기에 적절치 않다는 결론을 내렸다.
 
-![ML도표](/assets/images/ml-research-10.png)
+<img src="/assets/images/ml-research-10.png" alt="ML도표" style="zoom:67%;" />
 
 - **Hyperparameter selection based on transfer**
 
@@ -271,7 +271,7 @@ Unsupervised model selection은 unsolved problem이다. good hyperparameter를 t
 
 # reference
 
-[배경 지식]에서 사용된 이미지를 제외한 모든 이미지는https://arxiv.org/pdf/1811.12359.pdf 에서 가져왔다.
+[배경 지식]에서 사용된 이미지를 제외한 모든 이미지는 [Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations 논문](https://arxiv.org/pdf/1811.12359.pdf)  에서 가져왔다.
 
 
 
