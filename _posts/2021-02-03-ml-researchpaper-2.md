@@ -2,6 +2,7 @@
 layout: post
 title:  "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
 excerpt: "무시무시한 ML 논문 읽기"
+comments: true
 
 categories:
   - MachineLearning
