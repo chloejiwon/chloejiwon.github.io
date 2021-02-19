@@ -1,7 +1,6 @@
 # Site settings
 title:         jjioni
 description:    "jjioni as a software engineer"
-baseurl:        "/tale"
 url:            "https://chloejiwon.github.io"
 
 # Google Analytics
