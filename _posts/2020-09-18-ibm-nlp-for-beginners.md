@@ -1,5 +1,6 @@
 ---
 
+layout: post
 title: "IBM Watson을 이용한 간단한 NLP 실습"
 excerpt: "초보자를 위한 NLU 튜토리얼 따라하기"
 
@@ -40,7 +41,7 @@ Review DataSet을 IBM Cloud Storage에 올리고, Data를 내가 구현한 노�
 
 IBM Cloud ID로 로그인하니 뭔가 멋진 그림이 보입니다. 제가 아무 서비스도 사용하지 않아서 뜨는 것 같군요. 🐣
 
-![image-20200918223858039](/assets/images/image-20200918223858039.png)
+![image-20200918223858039](../assets/images/image-20200918223858039.png)
 
 
 
@@ -50,19 +51,19 @@ Service Catalog에서 Natural Language Understanding을 누르고, 서비스를 
 
 짠! 잘 만들면, 요렇게 뜹니다.
 
-![image-20200918224924851](/assets/images/image-20200918224924851.png)
+![image-20200918224924851](../assets/images/image-20200918224924851.png)
 
 
 
 그리고 우리는 Watson NLU 서비스의 API 를 호출할 때 필요한 credentials이 필요해요. 우리가 만든 서비스에 들어가 New Credential을 누릅니다. 
 
-![image-20200918225343790](/assets/images/image-20200918225343790.png)
+![image-20200918225343790](../assets/images/image-20200918225343790.png)
 
 그리고 credential key를 메모장이라든지 잘 보관해두세요. 이름 쓰라고 뜨는데 원하는 이름 쓰면, api key같은 것들이 잔뜩 써진 credential이 생성됩니다. 
 
 
 
-![image-20200918225811817](/assets/images/image-20200918225811817.png)
+![image-20200918225811817](../assets/images/image-20200918225811817.png)
 
 여기서 우리는 api_key 와 url endpoint를 사용할 거에요.
 
@@ -74,7 +75,7 @@ Service Catalog에서 Natural Language Understanding을 누르고, 서비스를 
 
 New project > Create an empty project를 눌러 빈 프로젝트를 생성합니다. 
 
-![image-20200918230057367](/assets/images/image-20200918230057367.png)
+![image-20200918230057367](../assets/images/image-20200918230057367.png)
 
 
 
@@ -84,19 +85,19 @@ New project > Create an empty project를 눌러 빈 프로젝트를 생성합니
 
 > .... 프로젝트 만드는 중....
 
-![image-20200918230251238](/assets/images/image-20200918230251238.png)
+![image-20200918230251238](../assets/images/image-20200918230251238.png)
 
 
 
 뭔가 만들어지긴 했습니다. 이 대시보드에서 Add to Project를 클릭합니다. 이제 우리 notebook을 여기에 연결할 거에요.
 
-![image-20200918230323216](/assets/images/image-20200918230323216.png)
+![image-20200918230323216](../assets/images/image-20200918230323216.png)
 
 
 
 ⛔️ 아니.. 왜 저는... Available asset types에 Notebook 이 없죠..? 난관 봉착.
 
-![image-20200918233008279](/assets/images/image-20200918233008279.png)
+![image-20200918233008279](../assets/images/image-20200918233008279.png)
 
 
 
@@ -120,7 +121,7 @@ New project > Create an empty project를 눌러 빈 프로젝트를 생성합니
 
 당연히 Dataset은 저 외국블로그에서 다운받으면 되겠죠~🙄
 
-![image-20200918230905876](/assets/images/image-20200918230905876.png)
+![image-20200918230905876](../assets/images/image-20200918230905876.png)
 
 
 
@@ -128,19 +129,19 @@ New project > Create an empty project를 눌러 빈 프로젝트를 생성합니
 
 노트북에서 우리가 넣은 Dataset을 불러오고, transform하고 해야되는데 노트북안에서 Data에 우리가 넣은 tokenised_dataset.csv 파일을 쉽게 자동으로 insert할 수 있습니다. pandas Dataframe으로 넣어볼게요.
 
-![image-20200919015356075](/assets/images/image-20200919015356075.png)
+![image-20200919015356075](../assets/images/image-20200919015356075.png)
 
 그러면 빈 셀에 자동이로 이런 코드가 작성됩니다. 정말 편리한 세상...
 
 
 
-![image-20200919015609159](/assets/images/image-20200919015609159.png)
+![image-20200919015609159](../assets/images/image-20200919015609159.png)
 
 
 
 실행하면 우리가 넣은 dataset을 확인할 수 있어요.
 
-![image-20200919015641406](/assets/images/image-20200919015641406.png)
+![image-20200919015641406](../assets/images/image-20200919015641406.png)
 
 그럼 이 Dataset 문장에서 sentiment 를 추론해야겠죠? 이때 Watson의 **NLU API**를 활용할 겁니다. 
 

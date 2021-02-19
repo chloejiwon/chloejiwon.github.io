@@ -1,11 +1,19 @@
 ---
+<<<<<<< HEAD
+=======
+layout: post
+>>>>>>> theme-renovate-tale
 title:  "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
 excerpt: "무시무시한 ML 논문 읽기"
 
 categories:
   - MachineLearning
 tags:
+<<<<<<< HEAD
   - 머신러닝, 논문
+=======
+  - Machine Learning
+>>>>>>> theme-renovate-tale
 last_modified_at: 2021-02-03T17:42:00-05:00
 
 
@@ -27,7 +35,11 @@ Language model pre-training은 많은 NLP task에 효과적이다.
 
 pre-trained language representation을 downstream task(본 문제)에 사용하는 방법은 두 가지가 있다.
 
+<<<<<<< HEAD
 <img src="/assets/images/ml-research-2-1.png" alt="ml-1" style="zoom:50%;" />
+=======
+<img src="../assets/images/ml-research-2-1.png" alt="ml-1" style="zoom:50%;" />
+>>>>>>> theme-renovate-tale
 
 - **feature-based**
 
@@ -111,7 +123,11 @@ pre-trained architecture 과 final downstream architecture간의 차이가 거�
 
 - **Input/Output Representation**
 
+<<<<<<< HEAD
   <img src="/assets/images/ml-research-2-2.png" alt="ml-1" />
+=======
+  <img src="../assets/images/ml-research-2-2.png" alt="ml-1" />
+>>>>>>> theme-renovate-tale
 
   BERT는 위 그림과 같이 세 가지 embedding 값을 합쳐서 input으로 사용한다.
 
@@ -123,7 +139,11 @@ pre-trained architecture 과 final downstream architecture간의 차이가 거�
 
   문장의 첫번째 token은 무조건 [CLS] (문장의 시작을 알리기 위해), 두 문장을 합쳐놓은 input에서 두 문장을 문맥적으로 구분하기 위해 중간에 [SEP] token을 넣고, 학습된 embedding을 각 token에 더한다. (각 token이 sentence A 에 속하는지, B에 속하는지 알려주는)
 
+<<<<<<< HEAD
   <img src="/assets/images/ml-research-2-3.png" alt="ml-1" />
+=======
+  <img src="../assets/images/ml-research-2-3.png" alt="ml-1" />
+>>>>>>> theme-renovate-tale
 
 ### Pre-training
 
@@ -131,7 +151,11 @@ pre-trained architecture 과 final downstream architecture간의 차이가 거�
 
 - **Task#1 : Masked LM(=Cloze task)**
 
+<<<<<<< HEAD
   <img src="/assets/images/ml-research-2-4.png" alt="ml-1" />
+=======
+  <img src="../assets/images/ml-research-2-4.png" alt="ml-1" />
+>>>>>>> theme-renovate-tale
 
   input token을 random하게 15%(여기서는)를 mask하고, 전체 input을 예측하는게 아니라 mask된 token만을 예측하는 방식으로 train한다.
 
@@ -171,7 +195,11 @@ pre-training에 비해 굉장히 저렴하다. single Cloud TPU 사용해서 최
 
 ### Effect of Pre-training Tasks
 
+<<<<<<< HEAD
 <img src="/assets/images/ml-research-2-5.png" alt="ml-1" />
+=======
+<img src="../assets/images/ml-research-2-5.png" alt="ml-1" />
+>>>>>>> theme-renovate-tale
 
 - No NSP ⇒ NSP의 중요성
 - LTR(MLM대신에 Left-to-Right LM, left-context-only model) & No NSP ⇒ Bidirectional Representation의 중요성
@@ -186,7 +214,11 @@ fine-tuning task accuracy를 통해서 model size의 영향을 조사했다.
 
 BERT model의 레이어 수, hidden units, attention heads를 다르게 해서 실험했다. (다른 hyperparameter하고 training procedure는 똑같이 두고)
 
+<<<<<<< HEAD
 <img src="/assets/images/ml-research-2-6.png" alt="ml-1" />
+=======
+<img src="../assets/images/ml-research-2-6.png" alt="ml-1" />
+>>>>>>> theme-renovate-tale
 
 - larger model이 accuracy 가 월등히 좋았다.
 - BERT(base)는 110M parameter, BERT(large) 는 340M parameter
@@ -204,10 +236,18 @@ Feature-based approach(pre-trained model에서 fixed feature가 추출되는)도
 
 (2) 비싼 training data의 representation을 계산을 먼저 하고, 이 representation을 사용한 cheaper model에서 여러 실험을 하는게 computational cost입장에서 훨씬 이득이다.
 
+<<<<<<< HEAD
 <img src="/assets/images/ml-research-2-7.png" alt="ml-1" />
+=======
+<img src="../assets/images/ml-research-2-7.png" alt="ml-1" />
+>>>>>>> theme-renovate-tale
 
 결과적으로, BERT가 fine tuning과 feature based approach 모두에서 성능이 좋다.
 
 ## Conclusion
 
+<<<<<<< HEAD
 우리 연구의 가장 큰 성취는 NLP task에 잘 적용될 수 있는 pre-trained model를 deep bidirectional architecture로 이루었다는 것에 있다.
+=======
+우리 연구의 가장 큰 성취는 NLP task에 잘 적용될 수 있는 pre-trained model를 deep bidirectional architecture로 이루었다는 것에 있다.
+>>>>>>> theme-renovate-tale

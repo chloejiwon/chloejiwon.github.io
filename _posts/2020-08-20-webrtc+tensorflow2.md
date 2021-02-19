@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 2탄"
 excerpt: "webrtc 와 tensorflow js 모델로 object detection해보기"
 

@@ -1,11 +1,19 @@
 ---
-title: "이 블로그 설명서"
+layout: post
+title: "About"
+author: "Jiwon"
 permalink: /about/
-layout: single
 ---
 
-##  블로그
+A Software Development Engineer wanting to be a multipotentialite
 
-JJIONI NOTES 블로그는 기술과 관련 잡다한 것들을 기록하는 블로그다.
+A rapid learner, adapter
 
-_**`🐢 🐢 slow and steady wins the game`**_
+## Contact
+
+- [Resume](https://www.notion.so/Jiwon-Chung-615e499c90d145acb6a7046b79cdd7e6)
+- [GitHub](https://github.com/chloejiwon)
+- [LinekdIn](https://www.linkedin.com/in/jjiwon-chung/)
+- <chloe326o.o@gmail.com>
+
+Thanks for visiting!

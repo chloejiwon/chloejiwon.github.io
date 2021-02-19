@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "☁IBM Clouders 활동 후기(20/7 - 20/9)"
 excerpt: "IBM Clouders 활동을 돌아보며..."
 
