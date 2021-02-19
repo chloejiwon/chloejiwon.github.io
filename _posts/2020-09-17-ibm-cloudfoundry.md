@@ -1,5 +1,5 @@
 ---
-
+layout: post
 title: "IBM Cloud Foundry 로 node js 간단 배포하기"
 excerpt: "IBM Cloud Foundry로 간단한 node js 배포까지"
 
@@ -35,13 +35,13 @@ last_modified_at: 2020-09-17T01:11:00-05:00
 
 로컬 컴퓨터에서 테스트하면 아래처럼 동작한다.
 
-<img src="/assets/images/image-20200917233853509.png" alt="image-20200917233853509" style="zoom:50%;" />
+<img src="../assets/images/image-20200917233853509.png" alt="image-20200917233853509" style="zoom:50%;" />
 
 Room Number를 써서 화상 채팅방 만들면 된다. 나는 1을 넣어보겠다.
 
 숫자 넣고 Go하면 내 화면이 뜬다.  짜잔! 방을 만든 썬구리 얼굴이 뜬다.
 
-<img src="/assets/images/image-20200918004209456.png" alt="image-20200918004209456" style="zoom:50%;" />
+<img src="../assets/images/image-20200918004209456.png" alt="image-20200918004209456" style="zoom:50%;" />
 
 그리고 내가 여기서 다시 localhost:3000을 들어가서 내가 입력했던 채팅방 room number 1로 들어가면, 이제 화상 채팅이 가능해진다. 
 
@@ -49,7 +49,7 @@ Room Number를 써서 화상 채팅방 만들면 된다. 나는 1을 넣어보�
 
 썬구리와 윙키가 이제 화상채팅에 성공한 것. 
 
-<img src="/assets/images/image-20200917234747302.png" alt="image-20200917234747302" style="zoom:40%;" />
+<img src="../assets/images/image-20200917234747302.png" alt="image-20200917234747302" style="zoom:40%;" />
 
 
 
@@ -71,11 +71,11 @@ Room Number를 써서 화상 채팅방 만들면 된다. 나는 1을 넣어보�
 
 * 리소스 작성 > Cloud Foundry 앱 > Node js 선택
 
-<img src="/assets/images/image-20200917235511936.png" alt="image-20200917235511936" style="zoom:50%;" />
+<img src="../assets/images/image-20200917235511936.png" alt="image-20200917235511936" style="zoom:50%;" />
 
 * 이름 대충 정해서 만들면, 실행 중으로 변하면서 뭔가 시작하는 느낌이 든다. 내 대시보드에 가도 내가 만든 앱이 실행 중인 걸 알 수 있다. 
 
-<img src="/assets/images/image-20200917235955171.png" alt="image-20200917235955171" style="zoom:50%;" />
+<img src="../assets/images/image-20200917235955171.png" alt="image-20200917235955171" style="zoom:50%;" />
 
 * Cloud Foundry 앱을 사용하기 위해서는 앱의 root 경로에 manifest.yml파일을 만들어 설정해줘야 한다. 아래처럼 하면 되겠다.
 
@@ -109,21 +109,21 @@ package.json에는 실행할 명령어를 적는다.
 ibmcloud login
 ```
 
-<img src="/assets/images/image-20200918001207345.png" alt="image-20200918001207345" style="zoom:50%;" />
+<img src="../assets/images/image-20200918001207345.png" alt="image-20200918001207345" style="zoom:50%;" />
 
 ibmcloud target --cf로 해당 directory와 클라우드를 연결하고, ibmcloud cf push로 리소스를 클라우드에 입력시킨다. 
 
-<img src="/assets/images/image-20200918001455261.png" alt="image-20200918001455261" style="zoom:50%;" />
+<img src="../assets/images/image-20200918001455261.png" alt="image-20200918001455261" style="zoom:50%;" />
 
 😅 `ibmcloud cf push`는 생각보다 오래걸리므로 좀 기다립시다. 
 
-<img src="/assets/images/image-20200918002320370.png" alt="image-20200918002320370" style="zoom:50%;" />
+<img src="../assets/images/image-20200918002320370.png" alt="image-20200918002320370" style="zoom:50%;" />
 
-<img src="/assets/images/image-20200918002222784.png" alt="image-20200918002222784" style="zoom:67%;" />
+<img src="../assets/images/image-20200918002222784.png" alt="image-20200918002222784" style="zoom:67%;" />
 
 아.. 이런.. package.json에 오류가 있어서 실패했네. 로컬에 그래도 한번 돌려보고 push해야하는데.. 😤 어쨌든 오류 수정하고, 다시 ibmcloud cf push하면 된다.
 
-<img src="/assets/images/image-20200918002756205.png" alt="image-20200918002756205" style="zoom:67%;" />
+<img src="../assets/images/image-20200918002756205.png" alt="image-20200918002756205" style="zoom:67%;" />
 
 오우 성공! 이제 그럼 ibm cloud 대시보드를 확인해볼까?
 
@@ -133,11 +133,11 @@ ibmcloud target --cf로 해당 directory와 클라우드를 연결하고, ibmclo
 
 다시 내 리소스를 들어가서 앱URL방문을 클릭해본다. 
 
-<img src="/assets/images/image-20200918002900132.png" alt="image-20200918002900132" style="zoom:50%;" />
+<img src="../assets/images/image-20200918002900132.png" alt="image-20200918002900132" style="zoom:50%;" />
 
 로컬 컴퓨터에서 돌렸던 것과 똑같이 뜬다! 성공!
 
-<img src="/assets/images/image-20200918003026418.png" alt="image-20200918003026418" style="zoom:50%;" />
+<img src="../assets/images/image-20200918003026418.png" alt="image-20200918003026418" style="zoom:50%;" />
 
 
 
@@ -145,17 +145,17 @@ ibmcloud target --cf로 해당 directory와 클라우드를 연결하고, ibmclo
 
 1번 방을 만들고, 입장
 
-<img src="/assets/images/image-20200918003110003.png" alt="image-20200918003110003" style="zoom:50%;" />
+<img src="../assets/images/image-20200918003110003.png" alt="image-20200918003110003" style="zoom:50%;" />
 
 
 
 다시 썬구리가 등장한 것을 볼 수 있다.
 
-<img src="/assets/images/image-20200918003302577.png" alt="image-20200918003302577" style="zoom:50%;" />
+<img src="../assets/images/image-20200918003302577.png" alt="image-20200918003302577" style="zoom:50%;" />
 
 그럼 다시 1번방을 들어가서 화상 채팅 기능을 테스트해보자. 
 
-<img src="/assets/images/image-20200918003516244.png" alt="image-20200918003516244" style="zoom:50%;" />
+<img src="../assets/images/image-20200918003516244.png" alt="image-20200918003516244" style="zoom:50%;" />
 
 로컬에서 테스트했을 때와 동일하게 동작하는 것을 확인할 수 있다.
 

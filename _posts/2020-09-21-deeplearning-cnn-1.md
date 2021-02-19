@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "🐈 Deep learning - CNN (1) "
 excerpt: "딥러닝 CNN 기초 개념 뽀개기"
 
@@ -25,7 +26,7 @@ CNN(Convolutional Neural Network)는 이미지 인식에 특별히 아주 좋은
 
 처음에 배웠던 구조는 Fully Connected Neural Net 구조였다. 모든 뉴런이 인접하는 계층의 모든 뉴런과 결합되어 있었다. (책에서는 완전히 연결된 계층을 Affine 계층이라 부른다) 그래서 그 전에서 배운 구조는 Affine 계층 + 활성화 함수 계층이 짝을 이뤄 레고 블록처럼 쌓이는 구조다. 그럼 CNN은 어떻게 다른가? Convolution Layer와 Pooling Layer가 우리가 알고 있는 구조에 새롭게 등장한다.
 
-<img src="/assets/images/cnn-1-1.png" alt="cnn-1" style="zoom:67%;" />
+<img src="../assets/images/cnn-1-1.png" alt="cnn-1" style="zoom:67%;" />
 
 
 
@@ -39,7 +40,7 @@ Affine 계층로 딥러닝 구조를 구축하면 데이터의 어떤 성질은 
 
 그러면 이 특성을 살리는 딥 러닝 구조를 만들 수 있을까? 이때 등장하는 것이 Convolution Layer. 합성곱(Convolution)이 뭐하냐면, 이런 걸 하는 거다.
 
-<img src="/assets/images/cnn-1-2.png" alt="cnn-2" style="zoom:50%;" />
+<img src="../assets/images/cnn-1-2.png" alt="cnn-2" style="zoom:50%;" />
 
 맨 왼쪽에 있는 입력 데이터에 필터를 적용해서 출력 Feature map을 만들어 낸다. 데이터의 특성 측면에서 살펴보면 입력 데이터도 세로*가로 방향의 형상, 필터 역시 세로*가로, 그리고 출력 데이터 또한 가로*세로의 형상을 가진다. 뭔가 공간적 정보가 유지되는 느낌이 들지 않는 가? 🌀(최면 걸기)
 
@@ -53,7 +54,7 @@ Affine 계층로 딥러닝 구조를 구축하면 데이터의 어떤 성질은 
 
 입력 데이터 주위에 0을 채운다.
 
-![cnn-3](/assets/images/cnn-1-3.png)
+![cnn-3](../assets/images/cnn-1-3.png)
 
 padding 1을 주면, (4,4)였던 입력 데이터가 (6,6)이 된다.
 

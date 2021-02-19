@@ -1,263 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="dns-prefetch" href="https://my_disqus_shortname.disqus.com">
-    <meta
-    itemprop="description"
-    name="description"
-    content="
-        
-            
-        "
-    />
-    <title>
-      
-          About
-      
-    </title>
-    <!-- async load css file -->
-    <link rel="stylesheet" href="/assets/css/styles.css" media="none" onload="if(media!='all')media='all'">
-    <!-- Load css when script is disabled -->
-    <noscript><link rel="stylesheet" href="/assets/css/styles.css"></noscript>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Dns Prefetch the google analytics -->
-    <link rel="dns-prefetch" href="www.googletagmanager.com">
-    <link rel="dns-prefetch" href="www.google-analytics.com">
-
-
-
-    <!-- Load the script async and wait for the page to render for script to execute -->
-    <script defer src="/assets/js/theme.js"></script>
-    <script defer src="/assets/js/script.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA_123456789_1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA_123456789_1');
-</script>
-
-    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>About</title>
-<meta name="generator" content="Jekyll v3.8.7" />
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>About | Tale</title>
+<meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="About" />
+<meta name="author" content="Chester" />
 <meta property="og:locale" content="en_US" />
-<link rel="canonical" href="http://localhost:4000/about/" />
-<meta property="og:url" content="http://localhost:4000/about/" />
+<meta name="description" content="Minimal Jekyll theme for storytellers" />
+<meta property="og:description" content="Minimal Jekyll theme for storytellers" />
+<link rel="canonical" href="https://chesterhow.github.io/tale/about/" />
+<meta property="og:url" content="https://chesterhow.github.io/tale/about/" />
+<meta property="og:site_name" content="Tale" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="About" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/about/","@type":"WebSite","headline":"About","@context":"https://schema.org"}</script>
+{"url":"https://chesterhow.github.io/tale/about/","author":{"@type":"Person","name":"Chester"},"description":"Minimal Jekyll theme for storytellers","name":"Tale","@type":"WebSite","headline":"About","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  </head>
-    <body onload="onLoad()">
-      <select id='themeSelector' onchange="toggleTheme()" aria-label="Select theme">
-</select>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/tale/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
 
-      <div class="mid-section-cover">
-    <nav>
-        <h1>Jiwon</h1>
-        <ul>
-      <li>
-        <a href = "/">
-          Home
-        </a>
-      </li>
-      <li>
-        <a href = "/about/">
-          About
-        </a>
-      </li>
-      <li>
-        <a href = "/blog/">
-          Blog
-        </a>
-      </li>
-      <li>
-        <a href = "https://www.notion.so/Jiwon-Chung-615e499c90d145acb6a7046b79cdd7e6">
-          Resume
-        </a>
-      </li>
-</ul>
-    </nav>
-    <main class="sub-mid-section-cover">
-        <p>Text can be <strong>bold</strong>, <em>italic</em>, or <del>strikethrough</del>.</p>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/tale/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tale/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tale/assets/apple-touch-icon.png">
 
-<p><a href="./another-page.html">Link to another page</a>.</p>
+  <!-- RSS -->
+  <link type="application/atom+xml" rel="alternate" href="https://chesterhow.github.io/tale/feed.xml" title="Tale" />
 
-<p>There should be whitespace between paragraphs.</p>
+  <!-- Google Analytics-->
+  
+</head>
 
-<p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
 
-<h1 id="header-1">Header 1</h1>
+  <body>
 
-<p>This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.</p>
-
-<h2 id="header-2">Header 2</h2>
-
-<blockquote>
-  <p>This is a blockquote following a header.</p>
-
-  <p>When something is important enough, you do it even if the odds are not in your favor.</p>
-</blockquote>
-
-<h3 id="header-3">Header 3</h3>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Javascript code with syntax highlighting.</span>
-<span class="kd">var</span> <span class="nx">fun</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">lang</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">dateformat</span><span class="p">.</span><span class="nx">i18n</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./lang/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">l</span><span class="p">)</span>
-  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Ruby code with syntax highlighting</span>
-<span class="no">GitHubPages</span><span class="o">::</span><span class="no">Dependencies</span><span class="p">.</span><span class="nf">gems</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">gem</span><span class="p">,</span> <span class="n">version</span><span class="o">|</span>
-  <span class="n">s</span><span class="p">.</span><span class="nf">add_dependency</span><span class="p">(</span><span class="n">gem</span><span class="p">,</span> <span class="s2">"= </span><span class="si">#{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div></div>
-
-<h4 id="header-4">Header 4</h4>
-
-<ul>
-  <li>This is an unordered list following a header.</li>
-  <li>This is an unordered list following a header.</li>
-  <li>This is an unordered list following a header.</li>
-</ul>
-
-<h5 id="header-5">Header 5</h5>
-
-<ol>
-  <li>This is an ordered list following a header.</li>
-  <li>This is an ordered list following a header.</li>
-  <li>This is an ordered list following a header.</li>
-</ol>
-
-<h6 id="header-6">Header 6</h6>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">head1</th>
-      <th style="text-align: left">head two</th>
-      <th style="text-align: left">three</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">ok</td>
-      <td style="text-align: left">good swedish fish</td>
-      <td style="text-align: left">nice</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">out of stock</td>
-      <td style="text-align: left">good and plenty</td>
-      <td style="text-align: left">nice</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ok</td>
-      <td style="text-align: left">good <code class="highlighter-rouge">oreos</code></td>
-      <td style="text-align: left">hmm</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ok</td>
-      <td style="text-align: left">good <code class="highlighter-rouge">zoute</code> drop</td>
-      <td style="text-align: left">yumm</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="theres-a-horizontal-rule-below-this">There’s a horizontal rule below this.</h3>
-
-<hr />
-
-<h3 id="here-is-an-unordered-list">Here is an unordered list:</h3>
-
-<ul>
-  <li>Item foo</li>
-  <li>Item bar</li>
-  <li>Item baz</li>
-  <li>Item zip</li>
-</ul>
-
-<h3 id="and-an-ordered-list">And an ordered list:</h3>
-
-<ol>
-  <li>Item one</li>
-  <li>Item two</li>
-  <li>Item three</li>
-  <li>Item four</li>
-</ol>
-
-<h3 id="and-a-nested-list">And a nested list:</h3>
-
-<ul>
-  <li>level 1 item
+    <nav class="nav">
+  <div class="nav-container">
+    <a href="/tale/">
+      <h2 class="nav-title">Tale</h2>
+    </a>
     <ul>
-      <li>level 2 item</li>
-      <li>level 2 item
-        <ul>
-          <li>level 3 item</li>
-          <li>level 3 item</li>
-        </ul>
-      </li>
+      <li><a href="/tale/">Posts</a></li>
+      <li><a href="/tale/tags">Tags</a></li>
+      <li><a href="/tale/about">About</a></li>
     </ul>
-  </li>
-  <li>level 1 item
-    <ul>
-      <li>level 2 item</li>
-      <li>level 2 item</li>
-      <li>level 2 item</li>
-    </ul>
-  </li>
-  <li>level 1 item
-    <ul>
-      <li>level 2 item</li>
-      <li>level 2 item</li>
-    </ul>
-  </li>
-  <li>level 1 item</li>
-</ul>
+  </div>
+</nav>
 
-<h3 id="small-image">Small image</h3>
 
-<p><img src="https://github.githubassets.com/images/icons/emoji/octocat.png" alt="Octocat" /></p>
+    <main>
+      <div class="post">
+  <div class="post-info">
+    <span>Written by</span>
+    
+        Chester
+    
 
-<h3 id="large-image">Large image</h3>
+    
+  </div>
 
-<p><img src="https://guides.github.com/activities/hello-world/branching.png" alt="Branching" /></p>
+  <h1 class="post-title">About</h1>
+  <div class="post-line"></div>
 
-<h3 id="definition-lists-can-be-used-with-html-syntax">Definition lists can be used with HTML syntax.</h3>
+  <p>A friend of mine writes short stories. One sunny day, I asked if he wanted a website to showcase his works and he agreed. I decided to use GitHub Pages to host his site. That way he wouldn’t have to buy a domain and a server.</p>
 
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
+<p>While doing some research up on GitHub Pages, I accidentally chanced upon this <em>simple, blog-aware, static site generator</em> called <a href="https://jekyllrb.com/">Jekyll</a> which works really well with GitHub Pages. I figured it would do just fine for my friend and I set about searching for a pretty theme. I wanted a theme with a <em>book-ish</em> vibe. Unfortunately, most of the themes were too modern. Eventually, I caved and begun working on my own theme. With the help of <a href="https://github.com/poole/poole">Poole</a>, the Jekyll Butler, I was able to build <strong>Tale</strong>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-</code></pre></div></div>
+<h2 id="contribute">Contribute</h2>
+<p>Feel free to create an issue or make a pull request on <a href="https://github.com/chesterhow/tale">GitHub</a>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The final element.
-</code></pre></div></div>
+<p>Thanks for reading!</p>
 
-<h2 id="emojis">Emojis</h2>
-
-    </main>
 </div>
 
-    </body>
+
+
+<div class="pagination">
+  
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+    </main>
+
+    <footer>
+  <span>
+    &copy; <time datetime="2021-02-19 20:56:09 +0900">2021</time> Chester How. Made with Jekyll using the <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+  </span>
+</footer>
+
+  </body>
 </html>

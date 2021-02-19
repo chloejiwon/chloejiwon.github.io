@@ -1,4 +1,5 @@
 ---
+layout: post
 title:  "주소 창에 www.naver.com 치면 일어나는 일들 "
 excerpt: "WEB 동작 원리"
 
@@ -46,7 +47,7 @@ IP주소가 숫자로만 구성되어 있으니 외우기 힘들기 때문에, �
 ### 2. 웹 브라우저가 URL을 해석한다.
 
   - 어떤 프로토콜을 사용하는지 .. 
-  (http, telnet, ftp ...)
+    (http, telnet, ftp ...)
 
   - ip 정보가 필요한지 (:다음에 //있으면 필요하다고 판단)
 
@@ -85,9 +86,9 @@ IP주소가 숫자로만 구성되어 있으니 외우기 힘들기 때문에, �
   6) packet local subnet router 도착, AS(Autonomous System)경계 router들을 통과
 
       해당 라우터에선 packet의 IP header에서 target address를 추출하여 적당한 다음 hop으로 routing 
-
+    
       IP header의 TTL(Time To Live)필드는 통과하는 라우터의 대해 하나씩 감소
-
+    
       TTL필드가 0이 되거나 현재 router 대기열에 공간이 없으면 네트워크 정체로 packet 삭제
 
 ![TCP socket 통신 과정](/assets/images/tcp-operation.jpeg)

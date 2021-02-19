@@ -1,0 +1,101 @@
+I"�<h2 id="big-data">Big Data</h2>
+
+<ul>
+  <li>한대의 컴퓨터로는 저장하거나 연산하기 어려운 규모의 거대 데이터</li>
+</ul>
+
+<h3 id="scale-up--scale-out-비교">Scale UP &amp; Scale Out 비교</h3>
+
+<ul>
+  <li>Scale Up</li>
+</ul>
+
+<p>기존 장치에 필요한 부품을 추가해서 성능 향상 (ex, 디스크 증설, RAM 용량 확장…)</p>
+
+<p>상대적으로 비용이 적게 발생하나, 용량 확장에 제약이 있음</p>
+
+<ul>
+  <li>Scale Out</li>
+</ul>
+
+<p>성능 향상을 위해 장비를 추가하여 병렬로 사용하는 방식</p>
+
+<p>추가된 장비가 기존 장비와 하나의 System으로 운영되기 위한 별도의 장비가 필요!</p>
+
+<p>그렇다고 해서 무한정 확장되는 건 아님</p>
+
+<ul>
+  <li>비교</li>
+</ul>
+
+<p>웹사이트의 트래픽 증가하는 경우 scale out이 일반적으로 scale up	보단 효과적이며 비용도 저렴!</p>
+
+<p>하지만, DB의 빈번한 갱신이 필요한 OLTP(online transcation)의 경우 scale up이 효과적</p>
+
+<h3 id="cloud-computing-service">Cloud Computing Service</h3>
+
+<p>–&gt; 컴퓨터를 사용한 정보 처리를 보유 PC가 아니라 인터넷 너머 어딘가에 존재하는 클라우드 사업자의 컴퓨터에서 처리하는 서비스</p>
+
+<ul>
+  <li>Saas (Software as a Service)</li>
+</ul>
+
+<p>주로 업무에서 사용하는 SW기능을 인터넷 네트워크를 통해 필요한 만큼만 서비스로 제공</p>
+
+<p>Hw, os, middle ware, application까지 구축되어 있는 SW를 서비스로 이용하는 것</p>
+
+<ul>
+  <li>Paas (Platfrom as a Service)</li>
+</ul>
+
+<p>기업의 application 실행 환경 및 application 개발 환경을 서비스로 제공하는 모델</p>
+
+<p>(EX) java,php,ruby 등의 프로그래밍 언어를 지원하는 어플리케이션 실행 환경이나 DB등이 미리 마련되어 있어 단기간에 application 개발하여 런치 가능</p>
+
+<p>기본 인프라(일반적으로 하드웨어나 운영체제)를 관리할 필요가 없다</p>
+
+<ul>
+  <li>Iass (Infrastructure as a Service)</li>
+</ul>
+
+<p>CPU/HW 와 같은 컴퓨팅 리소스를 네트워크를 통해 서비스로 제공하는 모델</p>
+
+<p>(EX) 가상 서버, 온라인 스토리지 등</p>
+
+<h3 id="가상화">가상화</h3>
+
+<h3 id="hadoop">Hadoop</h3>
+
+<p><strong>빅데이터</strong>의 <strong>저장</strong>과 <strong>분석</strong>을 위한 <strong>분산 컴퓨팅</strong> 솔루션</p>
+
+<p><strong>분산</strong> : 여러 대의 컴퓨터로 나눠서 일을 처리함</p>
+
+<p><strong>분석</strong> : 데이터가 저장된 컴퓨터에서 데이터를 분석하고 그 결과를 합친다</p>
+
+<h2 id="name-node-data-node">Name Node, Data Node</h2>
+
+<ul>
+  <li>
+    <p>각 컴퓨터마다. 가상 머신을 만들어서 한 대는 name node, 한 대는 data node, 이런 식으로 구성 가능</p>
+  </li>
+  <li>
+    <p>Name Node</p>
+  </li>
+</ul>
+
+<p>파일을 쪼개주는 역할, 쪼개진 파일이 어느 데이터 노드에 저장되어 있는가를 기억하고 있다. Meta Data</p>
+
+<ul>
+  <li>Data Node</li>
+</ul>
+
+<p>쪼개진 데이터를 보관하고 있는 노드</p>
+
+<h2 id="overally">Overally…</h2>
+
+<h2 id="reference">Reference</h2>
+
+<p>https://www.youtube.com/watch?v=HCR1ILMROfI&amp;list=PLKOJg3-beila7LPuySi6JVAkB-1YZSZB_</p>
+
+<p>https://velog.io/@jyebe/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85-%EA%B0%9C%EB%85%90-%EB%B0%8F-SaaS-PaaS-IaaS-%EB%B9%84%EA%B5%90</p>
+:ET

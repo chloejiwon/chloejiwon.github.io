@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "추천 시스템 - Matrix Factorization 기초 원리와 구현 방법"
 excerpt: "Python을 이용한 matrix factorization 구현"
 

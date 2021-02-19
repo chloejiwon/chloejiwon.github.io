@@ -1,22 +1,12 @@
-<ul>
-      <li>
-        <a href = "{{ '/' | relative_url }}">
-          Home
-        </a>
-      </li>
-      <li>
-        <a href = "{{ 'about/' | relative_url }}">
-          About
-        </a>
-      </li>
-      <li>
-        <a href = "{{ 'blog/' | relative_url }}">
-          Blog
-        </a>
-      </li>
-      <li>
-        <a href = "{{ site.resume_url | relative_url }}">
-          Resume
-        </a>
-      </li>
-</ul>
+<nav class="nav">
+  <div class="nav-container">
+    <a href="{{ site.baseurl }}/">
+      <h2 class="nav-title">{{ site.title }}</h2>
+    </a>
+    <ul>
+      <li><a href="{{ site.baseurl }}/">Posts</a></li>
+      <li><a href="{{ '/tags' | prepend: site.baseurl }}">Tags</a></li>
+      <li><a href="{{ '/about' | prepend: site.baseurl }}">About</a></li>
+    </ul>
+  </div>
+</nav>

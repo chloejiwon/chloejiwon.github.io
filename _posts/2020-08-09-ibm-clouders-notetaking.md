@@ -1,4 +1,5 @@
 ---
+Layout: post
 title: "IBM Cloud Essentials Badge 획득하기"
 excerpt: "IBM CLOUD essentials 무료강의 듣고 badge 따자!"
 
@@ -28,7 +29,7 @@ aaS = as a Service, how you consume
 * Saas : Software
   * taking taxi / Uber
 
-<img src="/assets/images/image-20200809084416216.png" alt="image-20200809084416216" style="zoom:50%;" />
+<img src="../assets/images/image-20200809084416216.png" alt="image-20200809084416216" style="zoom:50%;" />
 
 ___
 
@@ -56,7 +57,7 @@ ___
 
  traditional cloud works like this. Network engineers have to do all network system things. routers, VPN, ... 
 
-<img src="/assets/images/image-20200809092240180.png" alt="image-20200809092240180" style="zoom:50%;" />
+<img src="../assets/images/image-20200809092240180.png" alt="image-20200809092240180" style="zoom:50%;" />
 
 However <<Virtual Networking>> , all of these capabilities is given as a service. User can create these functions and the segmentation with a UI or CLI or API without knowing any proprietary interfaces. 
 
@@ -91,7 +92,7 @@ legacy applications > VMs > Kubernates > **Cloud Foundry** > Serverless
 
 very developer focused approach. increased speed & ease. For example, what developer would do with cloud foundry is like this. Let's say you developed front application with react. You can deploy app with CLI tool CF(cloud foundry). Cloud Foundry takes your app and runs your app with the environment of cloud. You don't need to care about security, infrastructure. Then if you are to change your backend application into container, you can use CLI tool **kubectl** to deploy to cloud. Backend container & front app are running in the same environnment. 
 
-<img src="/assets/images/image-20200809224240804.png" alt="image-20200809224240804" style="zoom:30%;" />
+<img src="../assets/images/image-20200809224240804.png" alt="image-20200809224240804" style="zoom:30%;" />
 
 
 

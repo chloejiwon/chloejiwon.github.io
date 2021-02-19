@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "python의 process와 thread"
 excerpt: "GIL이 뭐야!"
 

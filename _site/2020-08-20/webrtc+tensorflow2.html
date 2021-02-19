@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 2탄 | Tale</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 2탄" />
+<meta name="author" content="Chester How" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="webrtc 와 tensorflow js 모델로 object detection해보기" />
+<meta property="og:description" content="webrtc 와 tensorflow js 모델로 object detection해보기" />
+<link rel="canonical" href="https://chesterhow.github.io/tale/2020-08-20/webrtc+tensorflow2" />
+<meta property="og:url" content="https://chesterhow.github.io/tale/2020-08-20/webrtc+tensorflow2" />
+<meta property="og:site_name" content="Tale" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-20T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 2탄" />
+<script type="application/ld+json">
+{"url":"https://chesterhow.github.io/tale/2020-08-20/webrtc+tensorflow2","mainEntityOfPage":{"@type":"WebPage","@id":"https://chesterhow.github.io/tale/2020-08-20/webrtc+tensorflow2"},"author":{"@type":"Person","name":"Chester How"},"description":"webrtc 와 tensorflow js 모델로 object detection해보기","@type":"BlogPosting","headline":"WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 2탄","dateModified":"2020-08-23T15:11:00+09:00","datePublished":"2020-08-20T00:00:00+09:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/tale/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/tale/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/tale/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/tale/assets/apple-touch-icon.png">
+
+  <!-- RSS -->
+  <link type="application/atom+xml" rel="alternate" href="https://chesterhow.github.io/tale/feed.xml" title="Tale" />
+
+  <!-- Google Analytics-->
+  
+</head>
+
+
+  <body>
+
+    <nav class="nav">
+  <div class="nav-container">
+    <a href="/tale/">
+      <h2 class="nav-title">Tale</h2>
+    </a>
+    <ul>
+      <li><a href="/tale/">Posts</a></li>
+      <li><a href="/tale/tags">Tags</a></li>
+      <li><a href="/tale/about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <main>
+      <div class="post">
+  <div class="post-info">
+    <span>Written by</span>
+    
+        Chester How
+    
+
+    
+      <br>
+      <span>on&nbsp;</span><time datetime="2020-08-20 00:00:00 +0900">August 20, 2020</time>
+    
+  </div>
+
+  <h1 class="post-title">WebRTC로 실시간 영상 통화를 하며 Object Detection을 해보자 - 2탄</h1>
+  <div class="post-line"></div>
+
+  <blockquote>
+  <p>프로젝트 진행하면서 처음 접한 webrtc.. 실시간으로 영상 채팅하며tensorflow js 모델과 함께 객체 인식을 하는 기능을 구현해보는데… 👀</p>
+
+  <p>2탄. 대망의 tensorflow js 모델로 object detection 성공해보자</p>
+
+  <p>왕왕 초보라 틀린 정보가 있을 수 있음을 미리 고지합니다</p>
+</blockquote>
+
+<h1 id="-table-of-contents">📌 Table of Contents</h1>
+
+<ul>
+  <li><a href="#tensorflow-js-모델을-심자">Tensorflow js모델을 심자</a>
+    <ul>
+      <li><a href="#tensorflow-js">Tensorflow js</a></li>
+      <li><a href="#webrtc-+-tensorflow.js">WebRTC + Tensorflow.JS</a></li>
+      <li><a href="#tensorflowjs-모듈-설치">Tensorflowjs 모듈 설치</a></li>
+    </ul>
+  </li>
+  <li><a href="#reference">reference</a></li>
+</ul>
+
+<h1 id="tensorflow-js-모델을-심자">Tensorflow js 모델을 심자</h1>
+
+<h2 id="tensorflow-js">Tensorflow js</h2>
+
+<p>Tensorflow.js는 자바스크립트 머신러닝 라이브러리다. JS로 ML모델을 개발하고 브라우저 / node.js에서 바로 ML 모델을 사용해볼 수 있다. 🎉 ML관련 웹 서비스에 대한 아이디어가 있다면 바로 활용하기 좋을듯 ! 나름대로 Pretrained된 모델 및 API도 많이 제공해주고 있으니 공식 홈페이지 구경해보면 재밌을 거 같다. 데모도 제공하는데 귀여운 아이디어와 UI로 구성된 페이지들이 많다.</p>
+
+<p>바로 사용할 수 있는 JS 모델을 node.js에 같은 데 넣어서 사용해도 되고(내가 했던 부분) 혹은 직접 모델을 만들었다면 Python Tensorflow모델을 변환하기도 된다는데, 이건 안해봐서 모르겠다.</p>
+
+<p>(아래는 Demo 페이지들. 구경해보세요 👀)</p>
+
+<p><a href="https://www.tensorflow.org/js/demos?hl=ko">https://www.tensorflow.org/js/demos?hl=ko</a></p>
+
+<h2 id="webrtc--tensorflowjs">WebRTC + Tensorflow.JS</h2>
+
+<p>그럼 나는 뭘 하고 싶냐면, 내가 1탄에서 만들었던 WebRTC기반 화상채팅 시스템에다가 남들 웹 캠 stream말고 내 웹 캠에서 나오는 stream에서 object detection을 해 볼 것이다. 추가로 더 하고자하는 건 object detection해서 나오는 정보를 peer에 data를 실어 보내면(?) peer connection을 맺고 있는 나머지 사람들도 내 정보를 받게끔 하고 싶다.</p>
+
+<p>나는  TensorFlow.JS 측에서 제공해주고 있는 <strong>객체 감지 모델(CoCo SSD)</strong>을 이용할 것이다. CoCo SSD 가 어떻게 train 됐고 어쩌고 저쩌고는 사실 관심 없고(이미지 관련 머신러닝은 왜케 땡기지가 않는지 모르겠다🤔.. 궁금한 사람은 TensorflowJS 공식 홈페이지나 github repo가면 나름 설명되어 있는것 같으니 참조하세요), 이용해서 내 웹캠에 어떻게 띄우냐가 중요한 부분이니까 빠르게 skip한다.</p>
+
+<h3 id="tensorflowjs-모듈-설치">Tensorflowjs 모듈 설치</h3>
+
+<p>1탄에서 한거에서 package.json의 dependencies에다가 tensorflow-model cocossd 넣어준다.</p>
+
+<p>⛔️ 요기서 잠깐 스탑!!</p>
+
+<p><strong>@tensorflow/tfjs</strong> 요거 버전 원래 2.0.1 사용하니까, 화면 띄울때 (=React실행되면서..) 텐서플로우 라이브러리가 import되면서 페이지를 몇 번씩 불러오는(=compDidMount 가 두번 이상 불려!!) 거가 아니겠는가 🤬 그래도 기능은 돌아가야 하는데 문제는 webRTC로 인해서 p2p connection 맺어야하니까 자꾸 시그널을 몇번씩 보내는거다.  아주 성가신… 하여튼, 버전을 다시 1.7.4로 하니까 이런 일은 없어졌다. 별 이슈 없다면 1.7.4를 사용하시길~</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="dl">"</span><span class="s2">dependencies</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">@tensorflow-models/coco-ssd</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^2.1.0</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">@tensorflow/tfjs</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^1.7.4</span><span class="dl">"</span><span class="p">,</span>
+</code></pre></div></div>
+
+<p>그 담에 우리 화면 띄워줄 js 파일에 import 해준다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">cocoSsd</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@tensorflow-models/coco-ssd</span><span class="dl">'</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">@tensorflow/tfjs</span><span class="dl">'</span>
+</code></pre></div></div>
+
+<p>이렇게 dependency 추가해주고 npm install 한번 해주면 우리가 사용할 Tensorflow library는 import 완료.</p>
+
+<h2 id="모델-활용">모델 활용</h2>
+
+<p>이제 내 웹캠 화면을 하나씩 뽑아서 object detect를 해보자. 나는 promise를 사용했음. CompDidMount()내에서 Promise로 내 <code class="language-plaintext highlighter-rouge">navigator.mediaDevices.GetUserMedia(this.streamConstraints)</code>가지고 Model를 load해서 처리하는 함수들을 만들었다.</p>
+
+<p>모델 load는 이렇게 하면 되고,</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">loadlModelPromise</span> <span class="o">=</span> <span class="nx">cocoSsd</span><span class="p">.</span><span class="nx">load</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Promise를 사용해서 로드한 cocoSSD 와 mediaDevices의 localVideo stream을 detect하는 함수에 넘겼다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// resolve all the Promises</span>
+    <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">loadlModelPromise</span><span class="p">,</span> <span class="nx">webcamPromise</span><span class="p">])</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">values</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">detectFromVideoFrame</span><span class="p">(</span><span class="nx">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="k">this</span><span class="p">.</span><span class="nx">localVideo</span><span class="p">.</span><span class="nx">current</span><span class="p">)</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+      <span class="p">})</span>
+</code></pre></div></div>
+
+<p>그리고 실제 모델 가지고 화면으로 predict하는 부분은 여기!</p>
+
+<p>알다시피… requestAnimationFrame() 이게 1 frame마다 불려서 너무 성능이 구려지기에 120 frame마다 돌아가게 했다. 여기다 timing넣는 방법은 못찾고 구글링하니 다들 저렇게 쓴다 그러길래 그냥 나도 따라 씀.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">detectFromVideoFrame</span> <span class="o">=</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">video</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">count</span> <span class="o">=</span> <span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">120</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">%</span> <span class="mi">120</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">model</span><span class="p">.</span><span class="nx">detect</span><span class="p">(</span><span class="nx">video</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">predictions</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">showDetections</span><span class="p">(</span><span class="nx">predictions</span><span class="p">)</span>
+        <span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Couldn</span><span class="se">\'</span><span class="s1">t start the webcam</span><span class="dl">'</span><span class="p">)</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+        <span class="p">})</span>
+      <span class="p">}</span>
+      <span class="nx">requestAnimationFrame</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">detectFromVideoFrame</span><span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">video</span><span class="p">)</span>
+      <span class="p">})</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>model.detect(video)</strong>하면 predictions 값을 return한다. 어떤 형식 이냐면 아래와 같다. bbox의 화면의 위치들이 나오고, class로 predict한 object의 분류?값이 나온다. 참고로, 얼굴이 있어야 사람으로 잡는 것 같고(당연한가?🙂) 기본 제공되는 모델이다 보니 성능이 미친듯이 좋지는 않다.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[{</span><span class="w">
+  </span><span class="err">bbox:</span><span class="w"> </span><span class="p">[</span><span class="err">x</span><span class="p">,</span><span class="w"> </span><span class="err">y</span><span class="p">,</span><span class="w"> </span><span class="err">width</span><span class="p">,</span><span class="w"> </span><span class="err">height</span><span class="p">],</span><span class="w">
+  </span><span class="err">class:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span><span class="w">
+  </span><span class="err">score:</span><span class="w"> </span><span class="mf">0.8380282521247864</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="err">bbox:</span><span class="w"> </span><span class="p">[</span><span class="err">x</span><span class="p">,</span><span class="w"> </span><span class="err">y</span><span class="p">,</span><span class="w"> </span><span class="err">width</span><span class="p">,</span><span class="w"> </span><span class="err">height</span><span class="p">],</span><span class="w">
+  </span><span class="err">class:</span><span class="w"> </span><span class="s2">"kite"</span><span class="p">,</span><span class="w">
+  </span><span class="err">score:</span><span class="w"> </span><span class="mf">0.74644153267145157</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>그리고 나는 model.detect해서 나오는 predictions 값을 확인하는 로직을 세워서 다른 peer에게 전송해야 되는 값이라면, peer에 data를 실어서 보내줬다. 내가 사용한 simple peer에선 <code class="language-plaintext highlighter-rouge">peer.send(JSON.stringify(data))</code> 해주면 되더라!</p>
+
+<p>받는 peer 쪽에서는 ‘data’로 받아주면 된다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">peer.on('data', data =&gt; { 어쩌고저쩌고 </code></p>
+
+<p>어떤 사람은 네모 박스 만들어서 Video 위 Canvas를 띄워주기도 하는데 나는 tutorial따라하다가 실제로는 안쓰긴 했다. 후후.</p>
+
+<p>어쨌든 결론은 1:N 화상채팅은 WebRTC로 구현 (1탄에선 N:N이긴 했으나… 1:N은 p2p connection을 1 - N (N끼리는 안하고) 으로만 해주면 되는 심플한 일.. ), 그다음 각 local video를 object detection해서 몇가지 특정 값은 peer에 보내주는 것 까지 구현 성공했다. 자기 webcam stream을 object detection하는 튜토리얼은 많다! 나는 여기 참고했다. 전체 구조랑 다 배웠다;</p>
+
+<ul>
+  <li><a href="https://nanonets.com/blog/object-detection-tensorflow-js/">https://nanonets.com/blog/object-detection-tensorflow-js/</a></li>
+</ul>
+
+<p>우리 팀이 프로젝트에서 한거는 요거! frontend랑, signaling-server참고하면 된다. 🤟🏼</p>
+
+<ul>
+  <li><a href="https://github.com/CheatingBusters">https://github.com/CheatingBusters</a></li>
+</ul>
+
+<h1 id="reference">reference</h1>
+
+<ul>
+  <li><a href="https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd">https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd</a></li>
+  <li><a href="https://www.tensorflow.org/js/models?hl=ko">https://www.tensorflow.org/js/models?hl=ko</a></li>
+  <li><a href="https://webrtchacks.com/webrtc-cv-tensorflow/">https://webrtchacks.com/webrtc-cv-tensorflow/</a></li>
+  <li><a href="https://nanonets.com/blog/object-detection-tensorflow-js/">https://nanonets.com/blog/object-detection-tensorflow-js/</a></li>
+</ul>
+
+
+</div>
+
+
+
+<div class="pagination">
+  
+    <a href="/tale/2020-09-17/ibm-cloudfoundry" class="left arrow">&#8592;</a>
+  
+  
+    <a href="/tale/2020-08-09/ibm-clouders-notetaking" class="right arrow">&#8594;</a>
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+    </main>
+
+    <footer>
+  <span>
+    &copy; <time datetime="2021-02-19 20:56:09 +0900">2021</time> Chester How. Made with Jekyll using the <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+  </span>
+</footer>
+
+  </body>
+</html>
